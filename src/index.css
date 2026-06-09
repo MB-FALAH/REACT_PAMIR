@@ -36,6 +36,14 @@ html {
   background-image: url("https://tse4.mm.bing.net/th/id/OIP.e1c0lSXTl4WeOaAxQsc6fgHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3");
 }
 
+.bg-faq-bg {
+  background-image: url("https://i.gifer.com/4NB4.gif");
+}
+
+.bg-contact-bg {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/065/752/653/small_2x/black-background-with-a-white-light-in-the-middle-free-photo.jpg");
+}
+
 /* Glassmorphism for Navbar */
 .nav-glass {
   background: rgba(7, 59, 40, 0.85);
