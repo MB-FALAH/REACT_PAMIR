@@ -11,7 +11,7 @@ function Home() {
         <div className="  relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center justify-between pt-20">
           <div className="md:w-1/2 text-white mb-12 md:mb-0 text-center md:text-start animate-fade-in-up">
             <h1
-              className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              className="font-serif text-5xl md:text-5xl font-bold mb-6 leading-tight"
               data-i18n="heroTitle"
             >
               Pure Pamir
@@ -47,7 +47,7 @@ function Home() {
             {/* <!-- Shilajit Bottle Image --> */}
             <div className="product-bottle-container relative">
               <img
-                src="./src/assets/images/shilajit-0.png"
+                src="/images/shilajit-0.png"
                 alt="Pamir Mountain Shilajit Bottle"
                 className="w-156 h-116 object-contain drop-shadow-2xl relative z-10"
               />

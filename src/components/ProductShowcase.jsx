@@ -19,7 +19,7 @@ function ProductShowcase() {
               <div className="h-48 flex items-center justify-center mb-4">
                 <div className="w-32 h-40  flex items-center justify-center">
                   <img
-                    src="/assets/images/30g.png"
+                    src="/images/30g.png"
                     alt="30g Shilajit"
                     className="w-full h-full object-contain"
                   />
@@ -32,11 +32,11 @@ function ProductShowcase() {
                 Pure Resin - 30g
               </h3>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center  delay-100">
+            <div className="bg-white p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center  -100">
               <div className="h-48 flex items-center justify-center mb-4">
                 <div className="w-32 h-40  flex items-center justify-center">
                   <img
-                    src="/assets/images/60g.png"
+                    src="/images/60g.png"
                     alt="60g Shilajit"
                     className="w-full h-full object-contain rounded-xl"
                   />
@@ -49,11 +49,11 @@ function ProductShowcase() {
                 Pure Resin - 60g
               </h3>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center delay-200">
+            <div className="bg-white p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center -200">
               <div className="h-48 flex items-center justify-center mb-4">
                 <div className="w-32 h-40  flex items-center justify-center">
                   <img
-                    src="/assets/images/100g.png"
+                    src="/images/100g.png"
                     alt="100g Shilajit"
                     className="w-full h-full object-contain"
                   />
