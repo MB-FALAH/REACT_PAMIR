@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* ============================= */
+/* style.css */
+/* =================================== */
+
+/* Custom Scrollbar */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Reduce root font-size to slightly shrink rem-based text and icons site-wide */
+  font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Background Images */
+.bg-hero-bg {
+  /* background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"); */
+  background-image: url("https://img.freepik.com/premium-photo/elegant-charcoal-noir-very-dark-background_1034303-32343.jpg");
+}
+
+.bg-about-bg {
+  /* background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"); */
+  background-image: url("https://tse4.mm.bing.net/th/id/OIP.e1c0lSXTl4WeOaAxQsc6fgHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3");
+}
+
+/* Glassmorphism for Navbar */
+.nav-glass {
+  background: rgba(7, 59, 40, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Typography */
+body {
+  font-family: "Inter", "Vazirmatn", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-serif {
+  font-family: "Playfair Display", serif;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .font-serif {
+  font-family: "Vazirmatn", serif;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #d4af37;
+  color: #073b28;
+}
+
+/* RTL Specific Adjustments */
+html[dir="rtl"] .border-s-4 {
+  border-right-width: 4px;
+  border-left-width: 0;
+}
+
+html[dir="rtl"] .rounded-s-lg {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+html[dir="rtl"] .rounded-e-lg {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.hover-shadow-gold:hover {
+  box-shadow: 0 5px 50px rgba(212, 175, 55, 0.3);
+}
+
+a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #d4af37;
+  transition: width 0.25s ease;
+}
+
+html[dir="rtl"] a::after {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
+a:hover::after,
+a:focus-visible::after {
+  width: 100%;
+}
+
+/* =================================== */
+/* end of style.css */
+/* =================================== */
+
+/* =================================== */
+/* animations.css */
+/* =================================== */
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Scroll Reveal Classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ Icon Rotation */
+.faq-btn.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* =================================== */
+/* end of animations.css */
+/* =================================== */
