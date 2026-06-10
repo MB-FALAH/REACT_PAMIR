@@ -1,3 +1,5 @@
+// ./src/components/ChooseYourResin.jsx
+
 function ChooseYourResin() {
   return (
     <div>

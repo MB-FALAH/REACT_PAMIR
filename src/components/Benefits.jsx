@@ -1,3 +1,5 @@
+// ./src/components/Benifits.jsx
+
 function Benefits() {
   return (
     <div>

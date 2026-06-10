@@ -1,3 +1,5 @@
+// ./src/components/FrequentlyAskedQuestions.jsx
+
 import { useState } from "react";
 
 function FrequentlyAskedQuestions() {

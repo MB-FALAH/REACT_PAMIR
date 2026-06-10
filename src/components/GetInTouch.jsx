@@ -1,3 +1,5 @@
+// ./src/components/GetInTouch.jsx
+
 import { useLanguage } from "../context/LanguageContext";
 
 function GetInTouch() {

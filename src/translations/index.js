@@ -1,3 +1,5 @@
+// ./src/translation/index.js
+
 export const translations = {
   en: {
     contactTitle: "Get In Touch",
