@@ -8,7 +8,7 @@ function Footer() {
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center text-darkGreen font-serif font-bold">
                   <img
-                    src="./src/assets/logo/shilajit-logo.jfif"
+                    src="./src/assets/logo/shilajit-logo2.png"
                     className="rounded-full w-full h-full object-cover"
                     alt="Pamir Shilajit Logo"
                   />

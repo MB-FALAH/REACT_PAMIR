@@ -2,7 +2,6 @@
 
 // components
 // components
-import { useLanguage } from "./context/LanguageContext";
 
 import Benefits from "./components/Benefits";
 import Home from "./components/Home";
@@ -16,6 +15,7 @@ import ChooseYourResin from "./components/ChooseYourResin";
 import CustomerReviews from "./components/CustomerReviews";
 import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
 import GetInTouch from "./components/GetInTouch";
+import { useLanguage } from "./context/LanguageContext";
 
 function App() {
   const { changeLanguage } = useLanguage();
