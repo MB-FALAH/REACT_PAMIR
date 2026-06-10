@@ -13,14 +13,14 @@ Language: JavaScript / JSX
 🚀 Quick Start
 
 bash
-1 # Install dependencies
-2 npm install
-3
-4 # Start the development server
-5 npm run dev
-6
-7 # Build for production
-8 npm run build
+# Install dependencies
+ npm install
+
+# Start the development server
+ npm run dev
+
+# Build for production
+ npm run build
 
 
 📞 Order & Contact
