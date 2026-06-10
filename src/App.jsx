@@ -1,3 +1,9 @@
+// ./src/app.jsx
+
+// components
+// components
+import { useLanguage } from "./context/LanguageContext";
+
 import Benefits from "./components/Benefits";
 import Home from "./components/Home";
 import Footer from "./components/layout/Footer";
@@ -12,8 +18,27 @@ import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
 import GetInTouch from "./components/GetInTouch";
 
 function App() {
+  const { changeLanguage } = useLanguage();
+
   return (
-    <div>
+    <>
+      {/* Temporary Language Buttons */}
+      <div className="fixed top-5 right-5 z-50 flex gap-2">
+        <button
+          onClick={() => changeLanguage("en")}
+          className="px-4 py-2 bg-black text-white rounded"
+        >
+          EN
+        </button>
+
+        <button
+          onClick={() => changeLanguage("da")}
+          className="px-4 py-2 bg-black text-white rounded"
+        >
+          دری
+        </button>
+      </div>
+
       <Navbar />
       <Home />
       <Benefits />
@@ -26,7 +51,7 @@ function App() {
       <FrequentlyAskedQuestions />
       <GetInTouch />
       <Footer />
-    </div>
+    </>
   );
 }
 

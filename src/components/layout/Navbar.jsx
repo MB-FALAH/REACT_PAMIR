@@ -6,15 +6,18 @@ function Navbar() {
     >
       <div className="container mx-auto  flex justify-between items-center">
         {/* LEFT: Logo */}
-        <a className="flex items-center gap-2 logo-container">
-          <div className="w-10 h-10 flex items-center justify-center">
+        <div className="flex items-center gap-2 logo-container">
+          <div
+            className="w-15 h-15
+           flex items-center justify-center"
+          >
             <img
-              src="./src/assets/logo/shilajit-logo.jfif"
+              src="./src/assets/logo/shilajit-logo2.png"
               className="rounded-full"
               alt="Pamir Shilajit Logo"
             />
           </div>
-        </a>
+        </div>
 
         {/* CENTER: Desktop Menu */}
         <nav className="hidden md:flex gap-8  items-center">
