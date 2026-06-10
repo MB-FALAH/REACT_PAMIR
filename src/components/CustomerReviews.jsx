@@ -1,3 +1,5 @@
+// ./src/components/CustomerReviews.jsx
+
 function CustomerReviews() {
   return (
     <div>

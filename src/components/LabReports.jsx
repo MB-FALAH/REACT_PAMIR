@@ -1,3 +1,5 @@
+// ./src/components/LabReports.jsx
+
 function LabReports() {
   return (
     <div>

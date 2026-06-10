@@ -1,3 +1,5 @@
+// ./src/components/Benifits.jsx
+
 function Benefits() {
   return (
     <div>
@@ -15,7 +17,7 @@ function Benefits() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* <!-- Benefit 1 --> */}
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-gray-100">
+            <div className="text-center p-6 bg-card rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-sh">
               <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold">
                 <svg
                   className="w-8 h-8"
@@ -32,18 +34,18 @@ function Benefits() {
                 </svg>
               </div>
               <h3
-                className="font-serif text-xl font-bold text-primary mb-2"
+                className="font-serif text-xl font-bold text-matteBlack mb-2"
                 data-i18n="benefit1Title"
               >
                 Natural Energy Support
               </h3>
-              <p className="text-gray-600 text-sm" data-i18n="benefit1Desc">
+              <p className="text-text text-sm" data-i18n="benefit1Desc">
                 Sustainably sourced from pristine Pamir highlands, supporting
                 vitality and endurance.
               </p>
             </div>
             {/* <!-- Benefit 2 --> */}
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-gray-100 -100">
+            <div className="text-center p-6 bg-card rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-sh">
               <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold">
                 <svg
                   className="w-8 h-8"
@@ -60,18 +62,18 @@ function Benefits() {
                 </svg>
               </div>
               <h3
-                className="font-serif text-xl font-bold text-primary mb-2"
+                className="font-serif text-xl font-bold text-matteBlack mb-2"
                 data-i18n="benefit2Title"
               >
                 Rich in 85+ Minerals
               </h3>
-              <p className="text-gray-600 text-sm" data-i18n="benefit2Desc">
+              <p className="text-text text-sm" data-i18n="benefit2Desc">
                 Naturally occurring trace elements including fulvic acid, iron,
                 zinc, and selenium.
               </p>
             </div>
             {/* <!-- Benefit 3 --> */}
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-gray-100 -200">
+            <div className="text-center p-6 bg-card rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-shhw -200">
               <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold">
                 <svg
                   className="w-8 h-8"
@@ -88,18 +90,18 @@ function Benefits() {
                 </svg>
               </div>
               <h3
-                className="font-serif text-xl font-bold text-primary mb-2"
+                className="font-serif text-xl font-bold text-matteBlack mb-2"
                 data-i18n="benefit3Title"
               >
                 Carefully Purified
               </h3>
-              <p className="text-gray-600 text-sm" data-i18n="benefit3Desc">
+              <p className="text-text text-sm" data-i18n="benefit3Desc">
                 Triple-filtered and lab-tested for heavy metals and microbial
                 purity.
               </p>
             </div>
             {/* <!-- Benefit 4 --> */}
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-gray-100 -300">
+            <div className="text-center p-6 bg-card rounded-xl shadow-sm hover:shadow-lg transition duration-300 border border-shhw -200">
               <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold">
                 <svg
                   className="w-8 h-8"
@@ -116,12 +118,12 @@ function Benefits() {
                 </svg>
               </div>
               <h3
-                className="font-serif text-xl font-bold text-primary mb-2"
+                className="font-serif text-xl font-bold text-matteBlack mb-2"
                 data-i18n="benefit4Title"
               >
                 Traditional Herbal Resin
               </h3>
-              <p className="text-gray-600 text-sm" data-i18n="benefit4Desc">
+              <p className="text-text text-sm" data-i18n="benefit4Desc">
                 Hand-collected and sun-dried using centuries-old Himalayan
                 methods.
               </p>

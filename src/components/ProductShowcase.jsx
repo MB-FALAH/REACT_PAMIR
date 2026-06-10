@@ -1,3 +1,5 @@
+// ./src/components/ProductShowcase.jsx
+
 function ProductShowcase() {
   return (
     <div>

@@ -1,3 +1,5 @@
+// ./src/components/AboutUs.jsx
+
 function AboutUs() {
   return (
     <div>
@@ -7,9 +9,9 @@ function AboutUs() {
       >
         <div className="absolute inset-0 bg-darkGreen/70"></div>
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl mx-auto bg-white/95 backdrop-blur-sm p-10 rounded-2xl shadow-2xl text-center">
+          <div className="max-w-3xl mx-auto bg-card backdrop-blur-sm p-10 rounded-2xl shadow-2xl text-center">
             <h2
-              className="font-serif text-4xl font-bold text-primary mb-2"
+              className="font-serif text-4xl font-bold text-matteBlack mb-2"
               data-i18n="aboutTitle"
             >
               About Us
@@ -21,34 +23,36 @@ function AboutUs() {
               Our Story
             </p>
             <p
-              className="text-gray-700 leading-relaxed mb-6"
+              className="text-text leading-relaxed mb-6"
               data-i18n="aboutText1"
             >
-              Pamir Mountain Shilajit is sustainably harvested by hand at
-              elevations exceeding 14,000 feet in the pristine Pamir range. Our
-              commitment to purity begins with rigorous lab testing and ends
-              with every drop of resin—unadulterated, wild-crafted, and
-              ethically sourced.
+              Deep within the majestic Pamir Mountains, where nature has
+              remained untouched for centuries, Shilajit forms naturally among
+              high-altitude rock formations. Inspired by local traditions and a
+              deep respect for nature, we carefully source and purify this
+              precious substance from the mountains of Pamir.
             </p>
-            <p className="text-gray-700 leading-relaxed" data-i18n="aboutText2">
-              This tradition spans generations of mountain families who know the
-              land, the seasons, and the sacred rhythm of harvest.
+            <p className="text-text leading-relaxed" data-i18n="aboutText2">
+              Our mission goes beyond selling a product. We aim to share the
+              natural heritage of the Pamir region with the world. Every jar of
+              Pamir Shilajit represents purity, authenticity, and the enduring
+              power of the mountains.
             </p>
             <div className="mt-8 flex justify-center gap-4 flex-wrap">
               <span
-                className="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                className="px-4 py-1 bg-matteBlack text-primary rounded-full text-sm font-medium"
                 data-i18n="aboutTag1"
               >
                 Since 1987
               </span>
               <span
-                className="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                className="px-4 py-1 bg-matteBlack text-primary rounded-full text-sm font-medium"
                 data-i18n="aboutTag2"
               >
                 Sustainably Harvested
               </span>
               <span
-                className="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                className="px-4 py-1 bg-matteBlack text-primary rounded-full text-sm font-medium"
                 data-i18n="aboutTag3"
               >
                 Lab-Tested Purity

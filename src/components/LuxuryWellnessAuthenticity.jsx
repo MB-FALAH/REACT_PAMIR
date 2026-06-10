@@ -1,3 +1,5 @@
+// ./src/components/LuxuryWellnessAuthenticity.jsx
+
 function LuxuryWellnessAuthenticity() {
   return (
     <div>
