@@ -1,7 +1,7 @@
 function LuxuryWellnessAuthenticity() {
   return (
     <div>
-      <section className="py-20 bg-bg text-white">
+      <section className="py-20 bg-contact-bg text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 ">
             <h2

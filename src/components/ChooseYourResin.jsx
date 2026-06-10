@@ -17,7 +17,7 @@ function ChooseYourResin() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* <!-- 30g --> */}
             <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 ">
-              <div className="h-40 flex items-center justify-center mb-6">
+              {/* <div className="h-40 flex items-center justify-center mb-6">
                 <img
                   src="./images/30g.png"
                   alt="30g Shilajit"
@@ -96,7 +96,7 @@ function ChooseYourResin() {
                 >
                   WhatsApp Order
                 </a>
-              </div>
+              </div> */}
             </div>
             {/* <!-- 60g --> */}
             <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-gold relative  -100">
@@ -191,7 +191,7 @@ function ChooseYourResin() {
             </div>
             {/* <!-- 100g --> */}
             <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100  -200">
-              <div className="h-40 flex items-center justify-center mb-6">
+              {/* <div className="h-40 flex items-center justify-center mb-6">
                 <div className="w-36 h-44 flex items-center justify-center">
                   <img
                     src="/images/100g.png"
@@ -272,7 +272,7 @@ function ChooseYourResin() {
                 >
                   WhatsApp Order
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
