@@ -13,7 +13,7 @@ function ChooseYourResin() {
             <h2 className="font-serif text-4xl font-bold text-gold mb-4">
               {t.chooseTitle}
             </h2>
-            <p className="text-gray-600">{t.chooseSubtitle}</p>
+            <p className="text-matteBlack">{t.chooseSubtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* <!-- 30g --> */}
@@ -95,11 +95,11 @@ function ChooseYourResin() {
                 {t.badgePopular}
               </div>
               <div className="h-40 flex items-center justify-center mb-6">
-                <div className="w-32 h-40 flex items-center justify-center">
+                <div className="w-50 h-50 flex items-center justify-center">
                   <img
-                    src="/images/60g.png"
+                    src="./public/images/shilajit-1.png"
                     alt="60g Shilajit"
-                    className="w-32 h-40"
+                    className="w-100 h-100 "
                   />
                 </div>
               </div>
