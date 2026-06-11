@@ -17,12 +17,12 @@ function ProductShowcase() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-card p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
-              <div className="h-48 flex items-center justify-center mb-4">
-                <div className="w-32 h-40 flex items-center justify-center">
+              <div className="h-full flex items-center justify-center mb-4">
+                <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="/images/30g.png"
+                    src="./public/images/shilajit-3.png"
                     alt="30g Shilajit"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain rounded-xl"
                   />
                 </div>
               </div>
@@ -38,7 +38,7 @@ function ProductShowcase() {
               <div className="h-full flex items-center justify-center mb-4">
                 <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="./public/images/shilajit-0.png"
+                    src="./public/images/shilajit-4.png"
                     alt="30g Shilajit"
                     className="w-full h-full object-contain rounded-xl"
                   />
@@ -51,18 +51,18 @@ function ProductShowcase() {
 
             {/* 3 Shilajit */}
             <div className="bg-card p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
-              <div className="h-48 flex items-center justify-center mb-4">
-                <div className="w-32 h-40 flex items-center justify-center">
+              <div className="h-full flex items-center justify-center mb-4">
+                <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="/images/100g.png"
-                    alt="100g Shilajit"
-                    className="w-full h-full object-contain"
+                    src="./public/images/shilajit-0.png"
+                    alt="30g Shilajit"
+                    className="w-full h-full object-contain rounded-xl"
                   />
                 </div>
               </div>
-              <h3 className="font-serif text-xl font-bold text-primary">
+              {/* <h3 className="font-serif text-xl font-bold text-primary">
                 {t.product3}
-              </h3>
+              </h3> */}
             </div>
           </div>
         </div>
