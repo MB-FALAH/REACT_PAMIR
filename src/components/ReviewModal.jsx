@@ -1,4 +1,4 @@
-// ./src/components/ReviewForm.jsx
+// ./src/components/ReviewModal.jsx
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -81,7 +81,6 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
 
     setIsSubmitting(true);
 
-    // Save user info to localStorage
     localStorage.setItem("reviewerName", name.trim());
     localStorage.setItem("reviewerEmail", email.trim());
 
@@ -103,7 +102,6 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
 
     onReviewSubmit(newReview);
 
-    // Reset form
     setReviewText("");
     setRating(0);
     setName("");
@@ -111,7 +109,6 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
     setIsSubmitting(false);
     setShowSuccess(true);
 
-    // Close modal after showing success message
     setTimeout(() => {
       setShowSuccess(false);
       onClose();
@@ -127,7 +124,6 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
     }
   };
 
-  // If modal is not open, don't render anything
   if (!isOpen) return null;
 
   return (
@@ -138,10 +134,9 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      {/* Modal Content */}
       <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-fade-in-up">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl">
+        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl z-10">
           <h3 id="modal-title" className="text-2xl font-bold text-primary">
             {t.writeReview}
           </h3>
@@ -156,7 +151,6 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
 
         {/* Body */}
         <div className="p-6">
-          {/* Success Message */}
           {showSuccess && (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 animate-fade-in-up">
               <div className="flex items-center gap-2">
@@ -166,7 +160,6 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
             </div>
           )}
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Star rating */}
             <div>

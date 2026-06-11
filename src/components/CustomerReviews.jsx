@@ -1,16 +1,16 @@
 // ./src/components/CustomerReviews.jsx
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import ReviewForm from "./ReviewForm";
+import ReviewModal from "./ReviewModal";
 
 /**
  * CustomerReviews Component
- * Displays customer reviews with ratings, sorting, and submission form
+ * Displays customer reviews with ratings, sorting, and modal submission form
  */
 function CustomerReviews() {
   const { t } = useLanguage();
   const [reviews, setReviews] = useState([]);
-  const [showForm, setShowForm] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [sortBy, setSortBy] = useState("newest");
 
   /**
@@ -18,27 +18,21 @@ function CustomerReviews() {
    */
   const handleDeleteReview = (reviewId) => {
     if (window.confirm("Are you sure you want to delete this review?")) {
-      // Filter out the deleted review
       const updatedReviews = reviews.filter((review) => review.id !== reviewId);
-
-      // Update state
       setReviews(updatedReviews);
-
-      // Update localStorage
       localStorage.setItem("customerReviews", JSON.stringify(updatedReviews));
     }
   };
 
   /**
    * Load reviews from localStorage on component mount
-   * If no reviews exist, initialize with default reviews
+   * Initialize with default reviews if empty
    */
   useEffect(() => {
     const storedReviews = JSON.parse(
       localStorage.getItem("customerReviews") || "[]",
     );
 
-    // Initialize with default reviews if localStorage is empty
     if (storedReviews.length === 0) {
       const defaultReviews = [
         {
@@ -153,28 +147,32 @@ function CustomerReviews() {
               ))}
             </div>
 
-            {/* Toggle review form button */}
+            {/* Button to open review modal */}
             <button
-              onClick={() => setShowForm(!showForm)}
-              className="mt-8 bg-gold text-primary px-8 py-3 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
+              onClick={() => setShowModal(true)}
+              className="mt-8 bg-gold text-primary px-8 py-3 rounded-lg font-bold hover:bg-yellow-400 transition-all hover:shadow-lg transform hover:-translate-y-0.5"
             >
-              {showForm ? t.closeForm : t.writeReviewBtn}
+              {t.writeReviewBtn}
             </button>
           </div>
 
-          {/* Review submission form */}
-          {showForm && <ReviewForm onReviewSubmit={handleNewReview} />}
+          {/* Review Modal Component */}
+          <ReviewModal
+            isOpen={showModal}
+            onClose={() => setShowModal(false)}
+            onReviewSubmit={handleNewReview}
+          />
 
           {/* Sorting controls */}
           {reviews.length > 0 && (
-            <div className="max-w-4xl mx-auto mb-8 flex justify-between items-center">
+            <div className="max-w-4xl mx-auto mb-8 flex flex-col sm:flex-row justify-between items-center gap-4">
               <span className="text-white">
                 {t.showingReviews} {reviews.length} {t.reviewsCount}
               </span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 focus:outline-none focus:border-gold"
+                className="bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 focus:outline-none focus:border-gold w-full sm:w-auto"
               >
                 <option value="newest">{t.sortNewest}</option>
                 <option value="highest">{t.sortHighest}</option>
@@ -188,7 +186,7 @@ function CustomerReviews() {
             {sortedReviews.map((review) => (
               <div
                 key={review.id}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                className="bg-[#222222] p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow"
               >
                 {/* Star rating display */}
                 <div className="flex text-gold mb-4">
@@ -197,17 +195,17 @@ function CustomerReviews() {
                 </div>
 
                 {/* Review text */}
-                <p className="text-gray-600 mb-6 italic">"{review.text}"</p>
+                <p className="text-gray-300 mb-6 italic">"{review.text}"</p>
 
                 {/* Reviewer info */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                    <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-primary font-bold">
                       {review.name.charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <p className="font-bold text-primary">{review.name}</p>
-                      <p className="text-xs text-gray-500">
+                      <p className="font-bold text-white">{review.name}</p>
+                      <p className="text-xs text-gray-400">
                         {review.verified
                           ? t.verifiedBuyer
                           : new Date(review.date).toLocaleDateString(
@@ -224,7 +222,7 @@ function CustomerReviews() {
                 {!review.verified && (
                   <button
                     onClick={() => handleDeleteReview(review.id)}
-                    className="mt-4 text-red-500 hover:text-red-700 text-sm flex items-center gap-1 transition-colors"
+                    className="mt-4 text-red-400 hover:text-red-500 text-sm flex items-center gap-1 transition-colors"
                   >
                     🗑 Delete Review
                   </button>

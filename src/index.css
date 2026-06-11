@@ -25,45 +25,67 @@ html {
   background: transparent;
 }
 
-/* Background Images */
+/* =================================== */
+/* BACKGROUND IMAGES FOR SECTIONS */
+/* =================================== */
+
+/* Hero section background - cover full area without stretching */
 .bg-hero-bg {
-  /* background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"); */
   background-image: url("https://img.freepik.com/premium-photo/elegant-charcoal-noir-very-dark-background_1034303-32343.jpg");
-}
-
-.bg-about-bg {
-  /* background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"); */
-  background-image: url("https://tse4.mm.bing.net/th/id/OIP.e1c0lSXTl4WeOaAxQsc6fgHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3");
-}
-
-.bg-faq-bg {
-  background-image: url("https://i.gifer.com/4NB4.gif");
-}
-
-.bg-contact-bg {
-  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/065/752/653/small_2x/black-background-with-a-white-light-in-the-middle-free-photo.jpg");
-}
-
-/* .bg-galaxy-bg {
-  background-image: url("");
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-attachment: scroll;
+}
 
-  /* ایجاد افکت fade در اطراف */
-  /* -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    black 0.1%,
-    rgba(0, 0, 0, 0.1) 0%
-  );
-  mask-image: radial-gradient(
-    ellipse at center,
-    black 0.1%,
-    rgba(0, 0, 0, 0.1) 80%
-  );
-} */
-Glassmorphism for Navbar
-.nav-glass {
+/* About section background - cover full area */
+.bg-about-bg {
+  background-image: url("https://tse4.mm.bing.net/th/id/OIP.e1c0lSXTl4WeOaAxQsc6fgHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* FAQ section background - contain to prevent stretching */
+.bg-faq-bg {
+  background-image: url("https://i.gifer.com/4NB4.gif");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Contact section background - cover full area */
+.bg-contact-bg {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/065/752/653/small_2x/black-background-with-a-white-light-in-the-middle-free-photo.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* =================================== */
+/* FAQ SECTION - CONSTRAINED WIDTH */
+/* =================================== */
+
+/* Limit FAQ container width to prevent stretching across full screen */
+.faq-container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* FAQ item styling */
+.faq-item {
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Glassmorphism for Navbar */
+Glassmorphism for Navbar .nav-glass {
   background: rgba(7, 59, 40, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
