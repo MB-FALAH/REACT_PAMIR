@@ -1,6 +1,6 @@
 // ./src/components/Home.jsx
 
-import { useLanguage } from "../context/LanguageContext"; // ✅ تصحیح شد
+import { useLanguage } from "../context/LanguageContext"; 
 
 function Home() {
   const { t } = useLanguage();
@@ -12,6 +12,8 @@ function Home() {
         className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
       >
         <div className="absolute inset-0 bg-hero-bg bg-cover   bg-center"></div>
+className="hero-section relative h-screen flex items-center justify-center overflow-hidden"      >
+        <div className="absolute inset-0 bg-hero-bg bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-linear-to-r from-darkGreen/20 via-darkGreen/80 to-darkGreen/30"></div>
 
         <div className="relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center justify-between pt-20">

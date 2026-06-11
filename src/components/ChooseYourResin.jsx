@@ -1,11 +1,34 @@
-// ./src/components/ChooseYourResin.jsx
-
 import { useLanguage } from "../context/LanguageContext";
 
 function ChooseYourResin() {
   const { t } = useLanguage();
 
   return (
+    <section className="py-16 bg-contact-bg">
+      <div className="container mx-auto px-6">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-4xl font-bold text-gold mb-4">
+            {t.chooseTitle}
+          </h2>
+          <p className="text-gray-600">{t.chooseSubtitle}</p>
+        </div>
+
+        {/* Product Showcase */}
+        <div className="max-w-5xl mx-auto bg-bg rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-8 p-8 items-center">
+            {/* Product Image */}
+            <div className="flex justify-center">
+              <img
+                src="./images/30g.png"
+                alt="30g Shilajit"
+                className="w-56 md:w-72 object-contain"
+              />
+            </div>
+
+            {/* Product Content */}
+            <div>
+              <h3 className="font-serif text-2xl font-bold text-lightGold mb-3">
     <div>
       <section className="py-20 bg-contact-bg">
         <div className="container mx-auto px-6">
@@ -28,52 +51,20 @@ function ChooseYourResin() {
               <h3 className="font-serif text-2xl font-bold text-lightGold text-center mb-2">
                 {t.cardTitle}
               </h3>
-              <p className="text-center text-gold font-bold text-lg mb-4">
+
+              <p className="text-gold font-bold text-lg mb-5">
                 {t.card1Size}
               </p>
-              <ul className="text-sm text-gray-600 mb-6 space-y-2">
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat1}</span>
+
+              <ul className="space-y-3 text-gray-600 mb-6">
+                <li className="flex items-center gap-3">
+                  <span className="text-gold font-bold">✓</span>
+                  {t.cardFeat1}
                 </li>
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat2}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat3}</span>
-                </li>
+
+                <li className="flex items-center gap-3">
+                  <span className="text-gold font-bold">✓</span>
+                  {t.cardFeat2}
               </ul>
               <div className="flex gap-3">
                 <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-darkGreen transition border border-white">
@@ -124,119 +115,34 @@ function ChooseYourResin() {
                   </svg>
                   <span>{t.cardFeat1b}</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat2}</span>
+
+                <li className="flex items-center gap-3">
+                  <span className="text-gold font-bold">✓</span>
+                  {t.cardFeat3}
                 </li>
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat3}</span>
+
+                <li className="flex items-center gap-3">
+                  <span className="text-gold font-bold">✓</span>
+                  Premium quality from the Pamir Mountains
                 </li>
               </ul>
-              <div className="flex gap-3">
-                <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg border border-white transition">
-                  {t.btnInfo}
-                </button>
-                <a
-                  href="https://wa.me/93700123456"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary border-2 border-gold text-gold px-8 py-4 rounded-tr-lg rounded-tl-lg font-semibold hover:bg-gold hover:text-darkGreen transition duration-300 text-center"
-                >
-                  {t.btnWhatsappOrder}
-                </a>
-              </div>
-            </div>
-            {/* <!-- 100g --> */}
-            <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
-              <div className="h-40 flex items-center justify-center mb-6">
-                <div className="w-36 h-44 flex items-center justify-center">
-                  <img
-                    src="/images/100g.png"
-                    alt="100g Shilajit"
-                    className="w-36 h-44 object-contain rounded-lg"
-                  />
-                </div>
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-lightGold text-center mb-2">
-                {t.cardTitle}
-              </h3>
-              <p className="text-center text-gold font-bold text-lg mb-4">
-                {t.card3Size}
+
+              <p className="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
+                Authentic Pamir Mountain Shilajit resin carefully harvested and
+                purified to preserve its natural mineral content and traditional
+                potency.
               </p>
-              <ul className="text-sm text-gray-600 mb-6 space-y-2">
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat1}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat2}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat3}</span>
-                </li>
-              </ul>
-              <div className="flex gap-3">
+
+              <div className="flex flex-col sm:flex-row gap-3">
                 <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-darkGreen transition border border-white">
                   {t.btnInfo}
                 </button>
+
                 <a
                   href="https://wa.me/93700123456"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary border-2 border-gold text-gold px-8 py-4 rounded-tr-lg rounded-tl-lg font-semibold hover:bg-gold hover:text-darkGreen transition duration-300 text-center"
+                  className="btn-secondary border-2 border-gold text-gold px-6 py-3 rounded-tr-lg rounded-tl-lg font-semibold hover:bg-gold hover:text-darkGreen transition duration-300 text-center"
                 >
                   {t.btnWhatsappOrder}
                 </a>
@@ -244,8 +150,31 @@ function ChooseYourResin() {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Feature Boxes */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-5xl mx-auto">
+          <div className="bg-card p-4 rounded-xl shadow text-center">
+            <h4 className="text-gold font-bold mb-1">100%</h4>
+            <p className="text-sm text-matteBlack">Natural</p>
+          </div>
+
+          <div className="bg-card p-4 rounded-xl shadow text-center">
+            <h4 className="text-gold font-bold mb-1">Lab</h4>
+            <p className="text-sm text-matteBlack">Tested</p>
+          </div>
+
+          <div className="bg-card p-4 rounded-xl shadow text-center">
+            <h4 className="text-gold font-bold mb-1">Rich</h4>
+            <p className="text-sm text-matteBlack">Fulvic Acid</p>
+          </div>
+
+          <div className="bg-card p-4 rounded-xl shadow text-center">
+            <h4 className="text-gold font-bold mb-1">Premium</h4>
+            <p className="text-sm text-matteBlack">Quality</p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
