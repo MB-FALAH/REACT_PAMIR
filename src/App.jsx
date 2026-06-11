@@ -1,8 +1,7 @@
-// ./src/app.jsx
+// ./src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// components
-// components
-
+// Components
 import Benefits from "./components/Benefits";
 import Home from "./components/Home";
 import Footer from "./components/layout/Footer";
@@ -15,9 +14,14 @@ import ChooseYourResin from "./components/ChooseYourResin";
 import CustomerReviews from "./components/CustomerReviews";
 import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
 import GetInTouch from "./components/GetInTouch";
+import ReviewAdmin from "./components/ReviewAdmin";
 import { useLanguage } from "./context/LanguageContext";
 
-function App() {
+/**
+ * Main Page Component
+ * Contains all sections of the homepage
+ */
+function HomePage() {
   const { changeLanguage } = useLanguage();
 
   return (
@@ -30,7 +34,6 @@ function App() {
         >
           EN
         </button>
-
         <button
           onClick={() => changeLanguage("da")}
           className="px-4 py-2 bg-black text-white rounded"
@@ -52,6 +55,24 @@ function App() {
       <GetInTouch />
       <Footer />
     </>
+  );
+}
+
+/**
+ * Main App Component
+ * Handles routing between homepage and admin panel
+ */
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Homepage route */}
+        <Route path="/" element={<HomePage />} />
+
+        {/* Admin route - Access via /admin/reviews */}
+        <Route path="/admin/reviews" element={<ReviewAdmin />} />
+      </Routes>
+    </Router>
   );
 }
 

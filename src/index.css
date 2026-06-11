@@ -44,14 +44,14 @@ html {
   background-image: url("https://static.vecteezy.com/system/resources/thumbnails/065/752/653/small_2x/black-background-with-a-white-light-in-the-middle-free-photo.jpg");
 }
 
-.bg-galaxy-bg {
+/* .bg-galaxy-bg {
   background-image: url("");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 
   /* ایجاد افکت fade در اطراف */
-  -webkit-mask-image: radial-gradient(
+  /* -webkit-mask-image: radial-gradient(
     ellipse at center,
     black 0.1%,
     rgba(0, 0, 0, 0.1) 0%
@@ -61,8 +61,8 @@ html {
     black 0.1%,
     rgba(0, 0, 0, 0.1) 80%
   );
-}
-/* Glassmorphism for Navbar */
+} */
+Glassmorphism for Navbar
 .nav-glass {
   background: rgba(7, 59, 40, 0.85);
   backdrop-filter: blur(12px);

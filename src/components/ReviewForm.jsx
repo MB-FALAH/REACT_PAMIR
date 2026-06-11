@@ -1,65 +1,92 @@
 // ./src/components/ReviewForm.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 /**
  * ReviewForm Component
- * Allows customers to submit reviews with star ratings
+ * Simple review form with email and auto-fill
  */
 function ReviewForm({ onReviewSubmit }) {
   const { t } = useLanguage();
 
-  // Form state management
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
   /**
+   * Load saved user info from localStorage
+   */
+  useEffect(() => {
+    const savedName = localStorage.getItem("reviewerName");
+    const savedEmail = localStorage.getItem("reviewerEmail");
+    if (savedName) setName(savedName);
+    if (savedEmail) setEmail(savedEmail);
+  }, []);
+
+  /**
+   * Auto-fill name from email when email changes
+   */
+  useEffect(() => {
+    if (email && !name) {
+      // Extract name from email (before @)
+      const emailName = email.split("@")[0];
+      // Clean up name (remove numbers, dots, etc)
+      const cleanName = emailName.replace(/[0-9._]/g, " ").trim();
+      if (cleanName) {
+        setName(
+          cleanName
+            .split(" ")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" "),
+        );
+      }
+    }
+  }, [email]);
+
+  /**
    * Handle form submission
-   * Validates inputs and saves review to localStorage
    */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate all required fields
-    if (rating === 0 || !name.trim() || !reviewText.trim()) {
+    if (rating === 0 || !name.trim() || !email.trim() || !reviewText.trim()) {
       alert(t.fillAllFields);
       return;
     }
 
     setIsSubmitting(true);
 
-    // Create new review object
+    // Save user info to localStorage
+    localStorage.setItem("reviewerName", name.trim());
+    localStorage.setItem("reviewerEmail", email.trim());
+
     const newReview = {
       id: Date.now(),
       name: name.trim(),
+      email: email.trim(),
       rating: rating,
       text: reviewText.trim(),
       date: new Date().toISOString(),
-      verified: false, // User-submitted reviews are not verified buyers
+      verified: false,
     };
 
-    // Save to localStorage (retrieve existing reviews first)
     const existingReviews = JSON.parse(
       localStorage.getItem("customerReviews") || "[]",
     );
     existingReviews.push(newReview);
     localStorage.setItem("customerReviews", JSON.stringify(existingReviews));
 
-    // Notify parent component
     onReviewSubmit(newReview);
 
-    // Reset form fields
-    setName("");
     setReviewText("");
     setRating(0);
     setIsSubmitting(false);
     setShowSuccess(true);
 
-    // Hide success message after 3 seconds
     setTimeout(() => setShowSuccess(false), 3000);
   };
 
@@ -69,7 +96,6 @@ function ReviewForm({ onReviewSubmit }) {
         {t.writeReview}
       </h3>
 
-      {/* Success message display */}
       {showSuccess && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
           {t.successMessage}
@@ -77,7 +103,7 @@ function ReviewForm({ onReviewSubmit }) {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Star rating selection */}
+        {/* Star rating */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             {t.ratingLabel} *
@@ -100,7 +126,6 @@ function ReviewForm({ onReviewSubmit }) {
               </button>
             ))}
           </div>
-          {/* Display rating description */}
           {rating > 0 && (
             <p className="text-sm text-gray-500 mt-1">
               {t.ratingDescriptions[rating - 1]}
@@ -108,7 +133,22 @@ function ReviewForm({ onReviewSubmit }) {
           )}
         </div>
 
-        {/* Name input field */}
+        {/* Email input */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Email Address *
+          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            placeholder="your.email@example.com"
+            required
+          />
+        </div>
+
+        {/* Name input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             {t.nameLabel} *
@@ -121,9 +161,12 @@ function ReviewForm({ onReviewSubmit }) {
             placeholder={t.namePlaceholder}
             required
           />
+          <p className="text-xs text-gray-500 mt-1">
+            Name is auto-filled from your email, but you can change it
+          </p>
         </div>
 
-        {/* Review text area */}
+        {/* Review text */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             {t.reviewLabel} *

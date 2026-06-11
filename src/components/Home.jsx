@@ -9,6 +9,9 @@ function Home() {
     <div>
       <section
         id="home"
+        className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-hero-bg bg-cover   bg-center"></div>
 className="hero-section relative h-screen flex items-center justify-center overflow-hidden"      >
         <div className="absolute inset-0 bg-hero-bg bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-linear-to-r from-darkGreen/20 via-darkGreen/80 to-darkGreen/30"></div>
@@ -39,7 +42,7 @@ className="hero-section relative h-screen flex items-center justify-center overf
               </a>
             </div>
           </div>
-          <div className="md:w-1/2 flex justify-center animate-fade-in-up delay-200 bg-galaxy-bg bg-cover bg-fill">
+          <div className="md:w-1/2 flex justify-center animate-fade-in-up delay-200">
             {/* <!-- Shilajit Bottle Image --> */}
             <div className="product-bottle-container relative ">
               <img
