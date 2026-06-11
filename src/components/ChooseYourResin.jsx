@@ -1,176 +1,211 @@
+// ./src/components/ChooseYourResin.jsx
 import { useLanguage } from "../context/LanguageContext";
 
+/**
+ * ChooseYourResin Component
+ * Displays product cards with different sizes and features
+ */
 function ChooseYourResin() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 bg-contact-bg">
+    <section className="py-20 bg-contact-bg">
       <div className="container mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center mb-12">
+        {/* Section Heading */}
+        <div className="text-center mb-16">
           <h2 className="font-serif text-4xl font-bold text-gold mb-4">
             {t.chooseTitle}
           </h2>
-          <p className="text-gray-600">{t.chooseSubtitle}</p>
+          <p className="text-gray-300">{t.chooseSubtitle}</p>
         </div>
 
-        {/* Product Showcase */}
-        <div className="max-w-5xl mx-auto bg-bg rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-8 p-8 items-center">
+        {/* Product Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* 30g Product Card */}
+          <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-700">
             {/* Product Image */}
-            <div className="flex justify-center">
+            <div className="h-40 flex items-center justify-center mb-6">
               <img
                 src="./images/30g.png"
                 alt="30g Shilajit"
-                className="w-56 md:w-72 object-contain"
+                className="w-32 h-40 object-contain"
               />
             </div>
 
-            {/* Product Content */}
-            <div>
-              <h3 className="font-serif text-2xl font-bold text-lightGold mb-3">
-    <div>
-      <section className="py-20 bg-contact-bg">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl font-bold text-gold mb-4">
-              {t.chooseTitle}
-            </h2>
-            <p className="text-matteBlack">{t.chooseSubtitle}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* <!-- 30g --> */}
-            <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
-              <div className="h-40 flex items-center justify-center mb-6">
-                <img
-                  src="./images/30g.png"
-                  alt="30g Shilajit"
-                  className="w-32 h-40"
-                />
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-lightGold text-center mb-2">
-                {t.cardTitle}
-              </h3>
+            {/* Product Title */}
+            <h3 className="font-serif text-2xl font-bold text-gold text-center mb-2">
+              {t.cardTitle}
+            </h3>
 
-              <p className="text-gold font-bold text-lg mb-5">
-                {t.card1Size}
-              </p>
+            {/* Product Size */}
+            <p className="text-gold font-bold text-lg mb-5 text-center">
+              {t.card1Size}
+            </p>
 
-              <ul className="space-y-3 text-gray-600 mb-6">
-                <li className="flex items-center gap-3">
-                  <span className="text-gold font-bold">✓</span>
-                  {t.cardFeat1}
-                </li>
+            {/* Features List */}
+            <ul className="space-y-3 text-gray-300 mb-6">
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat1}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat2}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat3}
+              </li>
+            </ul>
 
-                <li className="flex items-center gap-3">
-                  <span className="text-gold font-bold">✓</span>
-                  {t.cardFeat2}
-              </ul>
-              <div className="flex gap-3">
-                <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-darkGreen transition border border-white">
-                  {t.btnInfo}
-                </button>
-                <a
-                  href="https://wa.me/93700123456"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary border-2 border-gold text-gold px-8 py-4 rounded-tr-lg rounded-tl-lg font-semibold hover:bg-gold hover:text-darkGreen transition duration-300 text-center"
-                >
-                  {t.btnWhatsappOrder}
-                </a>
-              </div>
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-opacity-80 transition border border-white">
+                {t.btnInfo}
+              </button>
+              <a
+                href="https://wa.me/93700123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 border-2 border-gold text-gold px-4 py-3 rounded-lg font-semibold hover:bg-gold hover:text-primary transition duration-300 text-center"
+              >
+                {t.btnWhatsappOrder}
+              </a>
             </div>
-            {/* <!-- 60g --> */}
-            <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-gold relative">
-              <div className="absolute top-2 left-2 bg-gold text-darkGreen text-xs font-bold px-3 py-1 rounded-bl-lg rounded-lg">
-                {t.badgePopular}
-              </div>
-              <div className="h-40 flex items-center justify-center mb-6">
-                <div className="w-50 h-50 flex items-center justify-center">
-                  <img
-                    src="./public/images/shilajit-1.png"
-                    alt="60g Shilajit"
-                    className="w-100 h-100 "
-                  />
-                </div>
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-lightGold text-center mb-2">
-                {t.cardTitle}
-              </h3>
-              <p className="text-center text-gold font-bold text-lg mb-4">
-                {t.card2Size}
-              </p>
-              <ul className="text-sm text-gray-600 mb-6 space-y-2">
-                <li className="flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4 text-gold"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>{t.cardFeat1b}</span>
-                </li>
+          </div>
 
-                <li className="flex items-center gap-3">
-                  <span className="text-gold font-bold">✓</span>
-                  {t.cardFeat3}
-                </li>
+          {/* 60g Product Card - Popular */}
+          <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-gold relative">
+            {/* Popular Badge */}
+            <div className="absolute top-2 left-2 bg-gold text-primary text-xs font-bold px-3 py-1 rounded-lg">
+              {t.badgePopular}
+            </div>
 
-                <li className="flex items-center gap-3">
-                  <span className="text-gold font-bold">✓</span>
-                  Premium quality from the Pamir Mountains
-                </li>
-              </ul>
+            {/* Product Image */}
+            <div className="h-40 flex items-center justify-center mb-6">
+              <img
+                src="./images/60g.png"
+                alt="60g Shilajit"
+                className="w-32 h-40 object-contain"
+              />
+            </div>
 
-              <p className="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
-                Authentic Pamir Mountain Shilajit resin carefully harvested and
-                purified to preserve its natural mineral content and traditional
-                potency.
-              </p>
+            {/* Product Title */}
+            <h3 className="font-serif text-2xl font-bold text-gold text-center mb-2">
+              {t.cardTitle}
+            </h3>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-darkGreen transition border border-white">
-                  {t.btnInfo}
-                </button>
+            {/* Product Size */}
+            <p className="text-gold font-bold text-lg mb-5 text-center">
+              {t.card2Size}
+            </p>
 
-                <a
-                  href="https://wa.me/93700123456"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary border-2 border-gold text-gold px-6 py-3 rounded-tr-lg rounded-tl-lg font-semibold hover:bg-gold hover:text-darkGreen transition duration-300 text-center"
-                >
-                  {t.btnWhatsappOrder}
-                </a>
-              </div>
+            {/* Features List */}
+            <ul className="space-y-3 text-gray-300 mb-6">
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat1b}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat2}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat3}
+              </li>
+            </ul>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-opacity-80 transition border border-white">
+                {t.btnInfo}
+              </button>
+              <a
+                href="https://wa.me/93700123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 border-2 border-gold text-gold px-4 py-3 rounded-lg font-semibold hover:bg-gold hover:text-primary transition duration-300 text-center"
+              >
+                {t.btnWhatsappOrder}
+              </a>
+            </div>
+          </div>
+
+          {/* 100g Product Card */}
+          <div className="bg-bg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-700">
+            {/* Product Image */}
+            <div className="h-40 flex items-center justify-center mb-6">
+              <img
+                src="./images/100g.png"
+                alt="100g Shilajit"
+                className="w-32 h-40 object-contain"
+              />
+            </div>
+
+            {/* Product Title */}
+            <h3 className="font-serif text-2xl font-bold text-gold text-center mb-2">
+              {t.cardTitle}
+            </h3>
+
+            {/* Product Size */}
+            <p className="text-gold font-bold text-lg mb-5 text-center">
+              {t.card3Size}
+            </p>
+
+            {/* Features List */}
+            <ul className="space-y-3 text-gray-300 mb-6">
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat1}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat2}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-gold font-bold">✓</span>
+                {t.cardFeat3}
+              </li>
+            </ul>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <button className="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-opacity-80 transition border border-white">
+                {t.btnInfo}
+              </button>
+              <a
+                href="https://wa.me/93700123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 border-2 border-gold text-gold px-4 py-3 rounded-lg font-semibold hover:bg-gold hover:text-primary transition duration-300 text-center"
+              >
+                {t.btnWhatsappOrder}
+              </a>
             </div>
           </div>
         </div>
 
         {/* Feature Boxes */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-5xl mx-auto">
           <div className="bg-card p-4 rounded-xl shadow text-center">
             <h4 className="text-gold font-bold mb-1">100%</h4>
-            <p className="text-sm text-matteBlack">Natural</p>
+            <p className="text-sm text-gray-300">Natural</p>
           </div>
 
           <div className="bg-card p-4 rounded-xl shadow text-center">
             <h4 className="text-gold font-bold mb-1">Lab</h4>
-            <p className="text-sm text-matteBlack">Tested</p>
+            <p className="text-sm text-gray-300">Tested</p>
           </div>
 
           <div className="bg-card p-4 rounded-xl shadow text-center">
             <h4 className="text-gold font-bold mb-1">Rich</h4>
-            <p className="text-sm text-matteBlack">Fulvic Acid</p>
+            <p className="text-sm text-gray-300">Fulvic Acid</p>
           </div>
 
           <div className="bg-card p-4 rounded-xl shadow text-center">
             <h4 className="text-gold font-bold mb-1">Premium</h4>
-            <p className="text-sm text-matteBlack">Quality</p>
+            <p className="text-sm text-gray-300">Quality</p>
           </div>
         </div>
       </div>
