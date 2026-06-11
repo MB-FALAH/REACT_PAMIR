@@ -38,22 +38,22 @@ function LuxuryWellnessAuthenticity() {
               {t.howToUseTitle}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="bg-darkGreen p-6 rounded-xl border border-gold/20 text-center">
+              <div className="bg-card p-6 rounded-xl border border-gold/20 text-center">
                 <div className="text-gold font-bold text-2xl mb-2">01</div>
                 <h4 className="font-bold mb-2">{t.step1Title}</h4>
                 <p className="text-sm text-gray-300">{t.step1Desc}</p>
               </div>
-              <div className="bg-darkGreen p-6 rounded-xl border border-gold/20 text-center">
+              <div className="bg-card p-6 rounded-xl border border-gold/20 text-center">
                 <div className="text-gold font-bold text-2xl mb-2">02</div>
                 <h4 className="font-bold mb-2">{t.step2Title}</h4>
                 <p className="text-sm text-gray-300">{t.step2Desc}</p>
               </div>
-              <div className="bg-darkGreen p-6 rounded-xl border border-gold/20 text-center">
+              <div className="bg-card p-6 rounded-xl border border-gold/20 text-center">
                 <div className="text-gold font-bold text-2xl mb-2">03</div>
                 <h4 className="font-bold mb-2">{t.step3Title}</h4>
                 <p className="text-sm text-gray-300">{t.step3Desc}</p>
               </div>
-              <div className="bg-darkGreen p-6 rounded-xl border border-gold/20 text-center">
+              <div className="bg-card p-6 rounded-xl border border-gold/20 text-center">
                 <div className="text-gold font-bold text-2xl mb-2">04</div>
                 <h4 className="font-bold mb-2">{t.step4Title}</h4>
                 <p className="text-sm text-gray-300">{t.step4Desc}</p>
