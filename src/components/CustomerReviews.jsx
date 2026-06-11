@@ -14,6 +14,22 @@ function CustomerReviews() {
   const [sortBy, setSortBy] = useState("newest");
 
   /**
+   * Delete a review by ID
+   */
+  const handleDeleteReview = (reviewId) => {
+    if (window.confirm("Are you sure you want to delete this review?")) {
+      // Filter out the deleted review
+      const updatedReviews = reviews.filter((review) => review.id !== reviewId);
+
+      // Update state
+      setReviews(updatedReviews);
+
+      // Update localStorage
+      localStorage.setItem("customerReviews", JSON.stringify(updatedReviews));
+    }
+  };
+
+  /**
    * Load reviews from localStorage on component mount
    * If no reviews exist, initialize with default reviews
    */
@@ -203,6 +219,16 @@ function CustomerReviews() {
                     </div>
                   </div>
                 </div>
+
+                {/* Delete button - ONLY show for non-verified reviews */}
+                {!review.verified && (
+                  <button
+                    onClick={() => handleDeleteReview(review.id)}
+                    className="mt-4 text-red-500 hover:text-red-700 text-sm flex items-center gap-1 transition-colors"
+                  >
+                    🗑 Delete Review
+                  </button>
+                )}
               </div>
             ))}
           </div>
