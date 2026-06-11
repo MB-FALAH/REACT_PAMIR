@@ -14,7 +14,7 @@ function AboutUs() {
         <div className="absolute inset-0 bg-darkGreen/70"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto bg-card backdrop-blur-sm p-10 rounded-2xl shadow-2xl text-center">
-            <h2 className="font-serif text-4xl font-bold text-matteBlack mb-2">
+            <h2 className="font-serif text-4xl font-bold text-white mb-2">
               {t.aboutTitle}
             </h2>
             <p className="text-gold font-medium mb-6 tracking-widest uppercase text-sm">
