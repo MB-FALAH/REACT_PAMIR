@@ -16,7 +16,7 @@ function ProductShowcase() {
             <div className="w-24 h-1 bg-gold mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
+            <div className="bg-card p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
               <div className="h-48 flex items-center justify-center mb-4">
                 <div className="w-32 h-40 flex items-center justify-center">
                   <img
@@ -26,25 +26,31 @@ function ProductShowcase() {
                   />
                 </div>
               </div>
-              <h3 className="font-serif text-xl font-bold text-primary">
+
+              {/* 1 Shilajit */}
+              {/* <h3 className="font-serif text-xl font-bold text-primary">
                 {t.product1}
-              </h3>
+              </h3> */}
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
-              <div className="h-48 flex items-center justify-center mb-4">
-                <div className="w-32 h-40 flex items-center justify-center">
+
+            {/* 2 Shilajit */}
+            <div className="bg-card p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
+              <div className="h-full flex items-center justify-center mb-4">
+                <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="/images/60g.png"
-                    alt="60g Shilajit"
+                    src="./public/images/shilajit-0.png"
+                    alt="30g Shilajit"
                     className="w-full h-full object-contain rounded-xl"
                   />
                 </div>
               </div>
-              <h3 className="font-serif text-xl font-bold text-primary">
+              {/* <h3 className="font-serif text-xl font-bold text-primary">
                 {t.product2}
-              </h3>
+              </h3> */}
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
+
+            {/* 3 Shilajit */}
+            <div className="bg-card p-6 rounded-xl shadow-md hover-shadow-gold transition duration-300 text-center">
               <div className="h-48 flex items-center justify-center mb-4">
                 <div className="w-32 h-40 flex items-center justify-center">
                   <img

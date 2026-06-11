@@ -40,11 +40,11 @@ function Home() {
               </a>
             </div>
           </div>
-          <div className="md:w-1/2 flex justify-center animate-fade-in-up delay-200">
+          <div className="md:w-1/2 flex justify-center animate-fade-in-up delay-200 bg-galaxy-bg bg-cover bg-fill">
             {/* <!-- Shilajit Bottle Image --> */}
-            <div className="product-bottle-container relative">
+            <div className="product-bottle-container relative ">
               <img
-                src="/images/shilajit-0.png"
+                src="/images/shilajit-1.png"
                 alt="Pamir Mountain Shilajit Bottle"
                 className="w-156 h-116 object-contain drop-shadow-2xl relative z-10"
               />
