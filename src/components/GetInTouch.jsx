@@ -106,7 +106,7 @@ function GetInTouch() {
                 <form className="space-y-5">
                   {/* NAME */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-matteBlack mb-2">
                       {t.formName}
                     </label>
 
@@ -118,7 +118,7 @@ function GetInTouch() {
 
                   {/* EMAIL */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-matteBlack mb-2">
                       {t.formEmail}
                     </label>
 
@@ -130,7 +130,7 @@ function GetInTouch() {
 
                   {/* MESSAGE */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-matteBlack mb-2">
                       {t.formMessage}
                     </label>
 

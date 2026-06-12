@@ -1,5 +1,4 @@
 // ./src/components/layout/Footer.jsx
-
 import { useLanguage } from "../../context/LanguageContext";
 
 function Footer() {
@@ -36,6 +35,14 @@ function Footer() {
               <li>
                 <a href="#products" className="hover:text-white">
                   {t.navProducts}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#order"
+                  className="text-matteBlack hover:text-white font-medium"
+                >
+                  {t.orderTitle}
                 </a>
               </li>
               <li>
@@ -90,7 +97,7 @@ function Footer() {
             <form className="space-y-2">
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t.formEmail}
                 className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gold w-full"
               />
               <button className="w-full bg-gold text-darkGreen px-4 py-2 rounded-lg font-bold hover:bg-lightGold transition">
