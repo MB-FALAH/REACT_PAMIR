@@ -1,5 +1,6 @@
 // ./src/components/layout/Navbar.jsx
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 
 function Navbar() {
@@ -38,35 +39,35 @@ function Navbar() {
             </span>
           </div>
 
-          {/* Menu - Center */}
+          {/* Menu - Center - Links to homepage sections */}
           <nav className="flex justify-center gap-3 lg:gap-5">
             <a
-              href="#home"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+              href="/#home"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
             >
               {t.navHome}
             </a>
             <a
-              href="#about"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+              href="/#about"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
             >
               {t.navAbout}
             </a>
             <a
-              href="#products"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+              href="/#products"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
             >
               {t.navProducts}
             </a>
             <a
-              href="#order"
-              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap text-sm lg:text-base"
+              href="/#order"
+              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap text-sm lg:text-base transition"
             >
-              {t.orderTitle}
+              {t.orderTitle || "Order Now"}
             </a>
             <a
-              href="#contact"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+              href="/#contact"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
             >
               {t.navContact}
             </a>
@@ -181,36 +182,36 @@ function Navbar() {
         <div className="md:hidden absolute top-full inset-x-0 bg-darkGreen/95 backdrop-blur-md border-t border-gold/20">
           <nav className="flex flex-col p-6 space-y-4">
             <a
-              href="#home"
-              className="text-white hover:text-gold whitespace-nowrap"
+              href="/#home"
+              className="text-white hover:text-gold whitespace-nowrap transition"
               onClick={closeMobileMenu}
             >
               {t.navHome}
             </a>
             <a
-              href="#about"
-              className="text-white hover:text-gold whitespace-nowrap"
+              href="/#about"
+              className="text-white hover:text-gold whitespace-nowrap transition"
               onClick={closeMobileMenu}
             >
               {t.navAbout}
             </a>
             <a
-              href="#products"
-              className="text-white hover:text-gold whitespace-nowrap"
+              href="/#products"
+              className="text-white hover:text-gold whitespace-nowrap transition"
               onClick={closeMobileMenu}
             >
               {t.navProducts}
             </a>
             <a
-              href="#order"
-              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap"
+              href="/#order"
+              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap transition"
               onClick={closeMobileMenu}
             >
-              {t.orderTitle}
+              {t.orderTitle || "Order Now"}
             </a>
             <a
-              href="#contact"
-              className="text-white hover:text-gold whitespace-nowrap"
+              href="/#contact"
+              className="text-white hover:text-gold whitespace-nowrap transition"
               onClick={closeMobileMenu}
             >
               {t.navContact}

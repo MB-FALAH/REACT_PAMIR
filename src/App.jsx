@@ -1,11 +1,12 @@
 // ./src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Layout
+import Layout from "./components/layout/Layout";
+
 // Components
 import Benefits from "./components/Benefits";
 import Home from "./components/Home";
-import Footer from "./components/layout/Footer";
-import Navbar from "./components/layout/Navbar";
 import AboutUs from "./components/AboutUs";
 import ProductShowcase from "./components/ProductShowcase";
 import LuxuryWellnessAuthenticity from "./components/LuxuryWellnessAuthenticity";
@@ -14,35 +15,20 @@ import ChooseYourResin from "./components/ChooseYourResin";
 import CustomerReviews from "./components/CustomerReviews";
 import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
 import GetInTouch from "./components/GetInTouch";
-import ReviewAdmin from "./components/ReviewAdmin";
-import { useLanguage } from "./context/LanguageContext";
+import AdminDashboard from "./components/ReviewAdmin";
+import ShippingInfo from "./components/ShippingInfo";
+import ReturnsPolicy from "./components/ReturnsPolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
+import LabReportsPage from "./components/LabReportsPage";
 
 /**
- * Main Page Component
+ * HomePage Component
  * Contains all sections of the homepage
  */
 function HomePage() {
-  const { changeLanguage } = useLanguage();
-
   return (
     <>
-      {/* Temporary Language Buttons */}
-      <div className="fixed top-5 right-5 z-50 flex gap-2">
-        <button
-          onClick={() => changeLanguage("en")}
-          className="px-4 py-2 bg-black text-white rounded"
-        >
-          EN
-        </button>
-        <button
-          onClick={() => changeLanguage("da")}
-          className="px-4 py-2 bg-black text-white rounded"
-        >
-          دری
-        </button>
-      </div>
-
-      <Navbar />
       <Home />
       <Benefits />
       <AboutUs />
@@ -53,27 +39,79 @@ function HomePage() {
       <CustomerReviews />
       <FrequentlyAskedQuestions />
       <GetInTouch />
-      <Footer />
     </>
   );
 }
 
 /**
  * Main App Component
- * Handles routing between homepage and admin panel
+ * Uses Layout to wrap all routes with Navbar and Footer
  */
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Homepage route */}
-        <Route path="/" element={<HomePage />} />
+        {/* Homepage - with Layout (Navbar + Footer) */}
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <HomePage />
+            </Layout>
+          }
+        />
 
-        {/* Admin route - Access via /admin/reviews */}
-        <Route path="/admin/reviews" element={<ReviewAdmin />} />
+        {/* Customer Care Pages - with Layout */}
+        <Route
+          path="/shipping"
+          element={
+            <Layout>
+              <ShippingInfo />
+            </Layout>
+          }
+        />
+        <Route
+          path="/returns"
+          element={
+            <Layout>
+              <ReturnsPolicy />
+            </Layout>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <Layout>
+              <PrivacyPolicy />
+            </Layout>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <Layout>
+              <TermsOfService />
+            </Layout>
+          }
+        />
+        <Route
+          path="/lab-reports"
+          element={
+            <Layout>
+              <LabReportsPage />
+            </Layout>
+          }
+        />
+
+        {/* Admin Dashboard - NO Layout (standalone) */}
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
+// Admin Panel
+// مدیریت نظرات
+// http://localhost:5173/admin/reviews

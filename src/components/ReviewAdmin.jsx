@@ -3,22 +3,28 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 /**
- * ReviewAdmin Component
- * Admin panel for managing customer reviews
+ * AdminDashboard Component
+ * Unified admin panel with tabs for Reviews and Newsletter
  * Protected by simple password authentication
  */
-function ReviewAdmin() {
+function AdminDashboard() {
   const { t } = useLanguage();
-  const [reviews, setReviews] = useState([]);
+  const [activeTab, setActiveTab] = useState("reviews"); // reviews, newsletter
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
+
+  // Reviews state
+  const [reviews, setReviews] = useState([]);
+
+  // Newsletter state
+  const [subscribers, setSubscribers] = useState([]);
 
   // Admin password (in production, use proper authentication)
   const ADMIN_PASSWORD = "admin123"; // Change this!
 
   /**
-   * Load reviews from localStorage
+   * Load data from localStorage after authentication
    */
   useEffect(() => {
     if (isAuthenticated) {
@@ -26,6 +32,11 @@ function ReviewAdmin() {
         localStorage.getItem("customerReviews") || "[]",
       );
       setReviews(storedReviews);
+
+      const storedSubscribers = JSON.parse(
+        localStorage.getItem("newsletterSubscribers") || "[]",
+      );
+      setSubscribers(storedSubscribers);
     }
   }, [isAuthenticated]);
 
@@ -44,6 +55,17 @@ function ReviewAdmin() {
   };
 
   /**
+   * Logout from admin panel
+   */
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setPassword("");
+    setActiveTab("reviews");
+  };
+
+  // ==================== REVIEW FUNCTIONS ====================
+
+  /**
    * Delete a single review
    */
   const deleteReview = (id) => {
@@ -56,7 +78,6 @@ function ReviewAdmin() {
 
   /**
    * Toggle verified status of a review
-   * Marks a review as verified buyer or removes verification
    */
   const toggleVerified = (id) => {
     const updated = reviews.map((r) => {
@@ -79,46 +100,62 @@ function ReviewAdmin() {
     }
   };
 
+  // ==================== NEWSLETTER FUNCTIONS ====================
+
   /**
-   * Logout from admin panel
+   * Delete a single subscriber
    */
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    setPassword("");
+  const deleteSubscriber = (email) => {
+    if (window.confirm(`Delete subscriber: ${email}?`)) {
+      const updated = subscribers.filter((sub) => sub.email !== email);
+      setSubscribers(updated);
+      localStorage.setItem("newsletterSubscribers", JSON.stringify(updated));
+    }
   };
 
-  // Login screen
+  /**
+   * Clear all subscribers
+   */
+  const clearAllSubscribers = () => {
+    if (window.confirm("⚠️ Delete ALL subscribers? This cannot be undone!")) {
+      setSubscribers([]);
+      localStorage.removeItem("newsletterSubscribers");
+    }
+  };
+
+  // ==================== LOGIN SCREEN ====================
+
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-          <h2 className="text-2xl font-bold mb-6 text-center">
+      <div className="min-h-screen bg-bg flex items-center justify-center p-4">
+        <div className="bg-black p-8 rounded-2xl shadow-2xl max-w-md w-full border border-gold/30">
+          <h2 className="text-3xl font-bold mb-6 text-center text-gold">
             🔒 Admin Login
           </h2>
 
           {loginError && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <div className="bg-red-900/50 border border-red-500 text-red-300 px-4 py-3 rounded-lg mb-4">
               {loginError}
             </div>
           )}
 
           <form onSubmit={handleLogin}>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Password
               </label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full px-4 py-3 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition"
                 placeholder="Enter admin password"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-primary text-white py-2 px-4 rounded-lg font-bold hover:bg-primary-dark transition-colors"
+              className="w-full bg-gold text-primary py-3 px-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
             >
               Login
             </button>
@@ -132,111 +169,231 @@ function ReviewAdmin() {
     );
   }
 
-  // Admin dashboard
+  // ==================== ADMIN DASHBOARD ====================
+
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-bg py-8">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold">📊 Review Management</h2>
+          <h2 className="text-3xl font-bold text-gold">📊 Admin Dashboard</h2>
           <button
             onClick={handleLogout}
-            className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700"
+            className="bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition font-bold"
           >
             Logout
           </button>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <p className="text-gray-500 text-sm">Total Reviews</p>
-            <p className="text-3xl font-bold text-primary">{reviews.length}</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <p className="text-gray-500 text-sm">Average Rating</p>
-            <p className="text-3xl font-bold text-gold">
-              {reviews.length > 0
-                ? (
-                    reviews.reduce((acc, r) => acc + r.rating, 0) /
-                    reviews.length
-                  ).toFixed(1)
-                : "0"}
-              ★
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <p className="text-gray-500 text-sm">Verified Buyers</p>
-            <p className="text-3xl font-bold text-green-600">
-              {reviews.filter((r) => r.verified).length}
-            </p>
-          </div>
-        </div>
-
-        {/* Action buttons */}
-        <div className="mb-6">
+        {/* Tabs */}
+        <div className="flex gap-2 mb-8 border-b border-gold/20">
           <button
-            onClick={clearAllReviews}
-            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 font-bold"
+            onClick={() => setActiveTab("reviews")}
+            className={`px-6 py-3 font-bold transition ${
+              activeTab === "reviews"
+                ? "text-gold border-b-2 border-gold"
+                : "text-gray-400 hover:text-white"
+            }`}
           >
-            🗑 Clear All Reviews
+            ⭐ Reviews ({reviews.length})
+          </button>
+          <button
+            onClick={() => setActiveTab("newsletter")}
+            className={`px-6 py-3 font-bold transition ${
+              activeTab === "newsletter"
+                ? "text-gold border-b-2 border-gold"
+                : "text-gray-400 hover:text-white"
+            }`}
+          >
+            📧 Newsletter ({subscribers.length})
           </button>
         </div>
 
-        {/* Reviews list */}
-        <div className="space-y-4">
-          {reviews.map((review) => (
-            <div key={review.id} className="bg-white p-6 rounded-lg shadow">
-              <div className="flex justify-between items-start gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <p className="font-bold text-lg">{review.name}</p>
-                    {review.verified && (
-                      <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-bold">
-                        ✓ Verified Buyer
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-gold text-lg mb-2">
-                    {"★".repeat(review.rating)}
-                    {"☆".repeat(5 - review.rating)}
-                  </p>
-                  <p className="text-gray-700 mb-2">{review.text}</p>
-                  <p className="text-sm text-gray-400">
-                    {new Date(review.date).toLocaleString()}
-                  </p>
-                </div>
-
-                {/* Action buttons */}
-                <div className="flex flex-col gap-2 shrink-0">
-                  {/* Toggle Verified button */}
-                  <button
-                    onClick={() => toggleVerified(review.id)}
-                    className={`px-4 py-2 rounded font-bold text-sm transition-colors ${
-                      review.verified
-                        ? "bg-yellow-500 hover:bg-yellow-600 text-white"
-                        : "bg-green-500 hover:bg-green-600 text-white"
-                    }`}
-                  >
-                    {review.verified ? "✓ Remove Verified" : "Mark as Verified"}
-                  </button>
-
-                  {/* Delete button */}
-                  <button
-                    onClick={() => deleteReview(review.id)}
-                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 font-bold text-sm transition-colors"
-                  >
-                    🗑 Delete
-                  </button>
-                </div>
+        {/* ==================== REVIEWS TAB ==================== */}
+        {activeTab === "reviews" && (
+          <div>
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="bg-black p-6 rounded-xl border border-gold/20">
+                <p className="text-gray-400 text-sm">Total Reviews</p>
+                <p className="text-3xl font-bold text-gold">{reviews.length}</p>
+              </div>
+              <div className="bg-black p-6 rounded-xl border border-gold/20">
+                <p className="text-gray-400 text-sm">Average Rating</p>
+                <p className="text-3xl font-bold text-gold">
+                  {reviews.length > 0
+                    ? (
+                        reviews.reduce((acc, r) => acc + r.rating, 0) /
+                        reviews.length
+                      ).toFixed(1)
+                    : "0"}
+                  ★
+                </p>
+              </div>
+              <div className="bg-black p-6 rounded-xl border border-gold/20">
+                <p className="text-gray-400 text-sm">Verified Buyers</p>
+                <p className="text-3xl font-bold text-green-400">
+                  {reviews.filter((r) => r.verified).length}
+                </p>
               </div>
             </div>
-          ))}
-        </div>
 
-        {reviews.length === 0 && (
-          <div className="bg-white p-12 rounded-lg shadow text-center">
-            <p className="text-gray-500 text-lg">No reviews found</p>
+            {/* Action buttons */}
+            <div className="mb-6">
+              <button
+                onClick={clearAllReviews}
+                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 font-bold transition"
+              >
+                🗑 Clear All Reviews
+              </button>
+            </div>
+
+            {/* Reviews list */}
+            <div className="space-y-4">
+              {reviews.map((review) => (
+                <div
+                  key={review.id}
+                  className="bg-black p-6 rounded-xl border border-gold/20"
+                >
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <p className="font-bold text-lg text-white">
+                          {review.name}
+                        </p>
+                        {review.verified && (
+                          <span className="bg-green-900/50 text-green-400 text-xs px-2 py-1 rounded font-bold border border-green-500/30">
+                            ✓ Verified Buyer
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-gold text-lg mb-2">
+                        {"★".repeat(review.rating)}
+                        {"☆".repeat(5 - review.rating)}
+                      </p>
+                      <p className="text-gray-300 mb-2">{review.text}</p>
+                      <p className="text-sm text-gray-500">
+                        {new Date(review.date).toLocaleString()}
+                      </p>
+                    </div>
+
+                    {/* Action buttons */}
+                    <div className="flex flex-col gap-2 shrink-0">
+                      <button
+                        onClick={() => toggleVerified(review.id)}
+                        className={`px-4 py-2 rounded font-bold text-sm transition ${
+                          review.verified
+                            ? "bg-yellow-600 hover:bg-yellow-700 text-white"
+                            : "bg-green-600 hover:bg-green-700 text-white"
+                        }`}
+                      >
+                        {review.verified
+                          ? "✓ Remove Verified"
+                          : "Mark as Verified"}
+                      </button>
+
+                      <button
+                        onClick={() => deleteReview(review.id)}
+                        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 font-bold text-sm transition"
+                      >
+                        🗑 Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {reviews.length === 0 && (
+              <div className="bg-black p-12 rounded-xl border border-gold/20 text-center">
+                <p className="text-gray-400 text-lg">No reviews found</p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ==================== NEWSLETTER TAB ==================== */}
+        {activeTab === "newsletter" && (
+          <div>
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="bg-black p-6 rounded-xl border border-gold/20">
+                <p className="text-gray-400 text-sm">Total Subscribers</p>
+                <p className="text-3xl font-bold text-gold">
+                  {subscribers.length}
+                </p>
+              </div>
+              <div className="bg-black p-6 rounded-xl border border-gold/20">
+                <p className="text-gray-400 text-sm">Latest Subscriber</p>
+                <p className="text-lg font-bold text-gold" dir="ltr">
+                  {subscribers.length > 0
+                    ? subscribers[subscribers.length - 1].email
+                    : "N/A"}
+                </p>
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="mb-6">
+              <button
+                onClick={clearAllSubscribers}
+                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 font-bold transition"
+              >
+                🗑 Clear All Subscribers
+              </button>
+            </div>
+
+            {/* Subscribers list */}
+            <div className="bg-black rounded-xl border border-gold/20 overflow-hidden">
+              {subscribers.length === 0 ? (
+                <div className="p-12 text-center">
+                  <p className="text-gray-400 text-lg">No subscribers yet</p>
+                </div>
+              ) : (
+                <table className="w-full">
+                  <thead className="bg-gold/10 border-b border-gold/20">
+                    <tr>
+                      <th className="text-left text-gold px-6 py-4 font-bold">
+                        #
+                      </th>
+                      <th className="text-left text-gold px-6 py-4 font-bold">
+                        Email
+                      </th>
+                      <th className="text-left text-gold px-6 py-4 font-bold">
+                        Subscribed At
+                      </th>
+                      <th className="text-right text-gold px-6 py-4 font-bold">
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {subscribers.map((sub, index) => (
+                      <tr
+                        key={sub.email}
+                        className="border-b border-gold/10 hover:bg-gold/5 transition"
+                      >
+                        <td className="px-6 py-4 text-gray-300">{index + 1}</td>
+                        <td className="px-6 py-4 text-white" dir="ltr">
+                          {sub.email}
+                        </td>
+                        <td className="px-6 py-4 text-gray-400 text-sm">
+                          {new Date(sub.subscribedAt).toLocaleString()}
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                          <button
+                            onClick={() => deleteSubscriber(sub.email)}
+                            className="text-red-400 hover:text-red-300 font-medium transition"
+                          >
+                            🗑 Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -244,4 +401,4 @@ function ReviewAdmin() {
   );
 }
 
-export default ReviewAdmin;
+export default AdminDashboard;
