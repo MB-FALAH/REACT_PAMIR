@@ -1,5 +1,4 @@
 // ./src/components/layout/Navbar.jsx
-
 import { useState, useEffect } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -25,7 +24,7 @@ function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4">
-        {/* Desktop Navbar - Using Grid */}
+        {/* Desktop Navbar */}
         <div className="hidden md:grid grid-cols-3 items-center">
           {/* Logo - Left */}
           <div className="flex items-center gap-2">
@@ -34,23 +33,41 @@ function Navbar() {
               className="w-10 h-10 rounded-full"
               alt="Logo"
             />
-            <span className="font-serif text-lg font-bold text-gold">
+            <span className="font-serif text-lg font-bold text-gold whitespace-nowrap">
               {t.brandName}
             </span>
           </div>
 
           {/* Menu - Center */}
-          <nav className="flex justify-center gap-8">
-            <a href="#home" className="text-white hover:text-gold">
+          <nav className="flex justify-center gap-3 lg:gap-5">
+            <a
+              href="#home"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+            >
               {t.navHome}
             </a>
-            <a href="#about" className="text-white hover:text-gold">
+            <a
+              href="#about"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+            >
               {t.navAbout}
             </a>
-            <a href="#products" className="text-white hover:text-gold">
+            <a
+              href="#products"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+            >
               {t.navProducts}
             </a>
-            <a href="#contact" className="text-white hover:text-gold">
+            <a
+              href="#order"
+              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap text-sm lg:text-base"
+            >
+              {t.orderTitle}
+            </a>
+            <a
+              href="#contact"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base"
+            >
               {t.navContact}
             </a>
           </nav>
@@ -91,13 +108,13 @@ function Navbar() {
               className="w-10 h-10 rounded-full"
               alt="Logo"
             />
-            <span className="font-serif text-lg font-bold text-gold">
+            <span className="font-serif text-sm md:text-lg font-bold text-gold whitespace-nowrap">
               {t.brandName}
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1 border border-gold/30 rounded-full px-3 py-1">
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-1 border border-gold/30 rounded-full px-2 py-1">
               <button
                 onClick={() => changeLanguage("en")}
                 className={`text-xs font-bold ${
@@ -127,7 +144,7 @@ function Navbar() {
             >
               {mobileOpen ? (
                 <svg
-                  className="w-8 h-8"
+                  className="w-6 h-6 md:w-8 md:h-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -141,7 +158,7 @@ function Navbar() {
                 </svg>
               ) : (
                 <svg
-                  className="w-8 h-8"
+                  className="w-6 h-6 md:w-8 md:h-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -165,28 +182,35 @@ function Navbar() {
           <nav className="flex flex-col p-6 space-y-4">
             <a
               href="#home"
-              className="text-white hover:text-gold"
+              className="text-white hover:text-gold whitespace-nowrap"
               onClick={closeMobileMenu}
             >
               {t.navHome}
             </a>
             <a
               href="#about"
-              className="text-white hover:text-gold"
+              className="text-white hover:text-gold whitespace-nowrap"
               onClick={closeMobileMenu}
             >
               {t.navAbout}
             </a>
             <a
               href="#products"
-              className="text-white hover:text-gold"
+              className="text-white hover:text-gold whitespace-nowrap"
               onClick={closeMobileMenu}
             >
               {t.navProducts}
             </a>
             <a
+              href="#order"
+              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap"
+              onClick={closeMobileMenu}
+            >
+              {t.orderTitle}
+            </a>
+            <a
               href="#contact"
-              className="text-white hover:text-gold"
+              className="text-white hover:text-gold whitespace-nowrap"
               onClick={closeMobileMenu}
             >
               {t.navContact}

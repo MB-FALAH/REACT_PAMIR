@@ -85,8 +85,8 @@ export const translations = {
     lab3Title: "Microbial Purity",
     lab3Desc: "Total Aerobic Count",
 
-    // Choose Your Resin
-    chooseTitle: "Choose Your Resin",
+    // Order Now Section
+    chooseTitle: "Order Now",
     chooseSubtitle: "100% Raw & Unprocessed • Rich in Fulvic Acid",
     cardTitle: "Pure Shilajit Resin",
     card1Size: "30g Jar",
@@ -99,6 +99,18 @@ export const translations = {
     btnInfo: "Info",
     btnWhatsappOrder: "Whatsapp Order",
     badgePopular: "POPULAR",
+    orderTitle: "Order  ",
+    orderSubtitle: "100% Raw & Unprocessed • Rich in Fulvic Acid",
+    featureNatural: "Natural & Pure",
+    featureLab: "Tested & Verified",
+    featureFulvic: "Fulvic Acid Content",
+    featurePremium: "Mountain Quality",
+    trustMountains: "Pamir Mountains",
+    trustAltitude: "14,000+ ft Altitude",
+    trustLab: "Lab Certified",
+    trustHeavyMetal: "Heavy Metal Free",
+    trustShipping: "Fast Shipping",
+    trustDelivery: "Worldwide Delivery",
 
     // Customer Reviews
     reviewsTitle: "Customer Reviews",
@@ -268,8 +280,8 @@ export const translations = {
     lab3Title: "خلوص میکروبی",
     lab3Desc: "شمارش کل هوازی",
 
-    // Choose Your Resin
-    chooseTitle: "رزین خود را انتخاب کنید",
+    // Order Now Section
+    chooseTitle: "سفارش دهید",
     chooseSubtitle: "۱۰۰٪ خام و فرآوری نشده • غنی از اسید فولویک",
     cardTitle: "رزین خالص موملایی",
     card1Size: "شیشه ۳۰ گرمی",
@@ -282,6 +294,18 @@ export const translations = {
     btnInfo: "معلومات",
     btnWhatsappOrder: "خرید از وتسپ",
     badgePopular: "محبوب",
+    orderTitle: "سفارش دهید",
+    orderSubtitle: "۱۰۰٪ خام و فرآوری نشده • غنی از اسید فولویک",
+    featureNatural: "طبیعی و خالص",
+    featureLab: "تست و تأیید شده",
+    featureFulvic: "محتوای اسید فولویک",
+    featurePremium: "کیفیت کوهستانی",
+    trustMountains: "کوه‌های پامیر",
+    trustAltitude: "ارتفاع بیش از ۱۴۰۰۰ فوت",
+    trustLab: "گواهی آزمایشگاهی",
+    trustHeavyMetal: "بدون فلزات سنگین",
+    trustShipping: "ارسال سریع",
+    trustDelivery: "تحویل جهانی",
 
     // Customer Reviews
     reviewsTitle: "نظرات مشتریان",
