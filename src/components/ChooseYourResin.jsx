@@ -1,11 +1,14 @@
 // ./src/components/ChooseYourResin.jsx
+import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import InfoModal from "./InfoModal";
 
 function ChooseYourResin() {
   const { t } = useLanguage();
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (
-    <section id="order" className="py-16 bg-bg">
+    <section id="order" className="py-16 bg-contact-bg">
       <div className="container mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-10">
@@ -59,7 +62,10 @@ function ChooseYourResin() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <button className="flex-1 bg-gold text-primary py-3 rounded-lg font-bold text-sm hover:bg-primary hover:text-white transition border-2 border-gold">
+                  <button
+                    onClick={() => setShowInfoModal(true)}
+                    className="flex-1 bg-gold text-primary py-3 rounded-lg font-bold text-sm hover:bg-primary hover:text-white transition border-2 border-gold"
+                  >
                     {t.btnInfo}
                   </button>
                   <a
@@ -146,6 +152,12 @@ function ChooseYourResin() {
           </div>
         </div>
       </div>
+
+      {/* Info Modal */}
+      <InfoModal
+        isOpen={showInfoModal}
+        onClose={() => setShowInfoModal(false)}
+      />
     </section>
   );
 }

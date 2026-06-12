@@ -63,6 +63,12 @@ html {
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
+.bg-order-bg {
+  background-image: url("https://www.bing.com/th/id/OGC.80f4b4c09340c2e7c46ca4254a14d9ff?o=7&pid=1.7&rm=3&rurl=https%3a%2f%2fi.pinimg.com%2foriginals%2f20%2fae%2ff2%2f20aef23d39a8dcb74bf663ed89ab08d6.gif&ehk=3m7uM9px0j91j%2bsedB3aEsm6poeZq6AeoN0kViENeoY%3d");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
 /* =================================== */
 /* FAQ SECTION - CONSTRAINED WIDTH */

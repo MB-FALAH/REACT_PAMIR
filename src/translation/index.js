@@ -99,7 +99,7 @@ export const translations = {
     btnInfo: "Info",
     btnWhatsappOrder: "Whatsapp Order",
     badgePopular: "POPULAR",
-    orderTitle: "Order  ",
+    orderTitle: "Order Now ",
     orderSubtitle: "100% Raw & Unprocessed • Rich in Fulvic Acid",
     featureNatural: "Natural & Pure",
     featureLab: "Tested & Verified",
@@ -199,6 +199,122 @@ export const translations = {
     modalTraditional: "• Traditionally used for energy and stamina support",
     modalHarvested: "• Harvested from high-altitude Pamir rocks",
     modalLabTested: "• Lab-tested for purity and heavy metals",
+
+    // Info Modal
+    modalTitle: "Product Information",
+    infoOriginTitle: "Pamir Origin",
+    infoOriginDesc:
+      "Sourced from the remote high-altitude cliffs of the Pamir Mountains, one of the world's most pristine and untouched mountain regions.",
+    infoWildTitle: "Wild Harvested",
+    infoWildDesc:
+      "Wild harvested from natural rock formations without industrial processing.",
+    infoPurityTitle: "Purity",
+    infoPurityDesc:
+      "Carefully purified to preserve its natural mineral profile and bioactive compounds.",
+    infoDifferenceTitle: "Why Pamir Shilajit?",
+    infoDifferenceDesc:
+      "While most Shilajit comes from crowded commercial sources, our Shilajit is sourced from the rare and rugged Pamir Mountains.",
+    btnClose: "Close",
+
+    // Shipping Info
+    shippingTitle: "Shipping Information",
+    shippingSection1: "Processing Time",
+    shippingText1:
+      "All orders are processed within 1-3 business days. Orders are not shipped or delivered on weekends or holidays. If we are experiencing a high volume of orders, shipments may be delayed by a few days. Please allow additional days in transit for delivery.",
+    shippingSection2: "Shipping Rates & Delivery Estimates",
+    shippingItem1: "Afghanistan: 3-5 business days",
+    shippingItem2: "International: 7-14 business days",
+    shippingItem3: "Express shipping available for urgent orders",
+    shippingItem4: "Free shipping on orders over $100",
+    shippingSection3: "Shipment Confirmation & Order Tracking",
+    shippingText2:
+      "You will receive a Shipment Confirmation email once your order has shipped containing your tracking number(s). The tracking number will be active within 24 hours.",
+    shippingSection4: "Customs, Duties and Taxes",
+    shippingText3:
+      "Pamir Mountain Shilajit is not responsible for any customs and taxes applied to your order. All fees imposed during or after shipping are the responsibility of the customer (tariffs, taxes, etc.).",
+
+    // Returns Policy
+    returnsTitle: "Returns & Refunds Policy",
+    returnsSection1: "Return Policy",
+    returnsText1:
+      "We have a 30-day return policy, which means you have 30 days after receiving your item to request a return. To be eligible for a return, your item must be in the same condition that you received it, unused and in its original packaging.",
+    returnsSection2: "Non-returnable Items",
+    returnsItem1: "Opened or used products",
+    returnsItem2: "Products without original packaging",
+    returnsItem3: "Gift cards",
+    returnsSection3: "How to Initiate a Return",
+    returnsStep1: "Email us at contact@pamirshilajit.com",
+    returnsStep2: "Include your order number and reason for return",
+    returnsStep3: "Wait for return authorization",
+    returnsStep4: "Ship the item back in original packaging",
+    returnsSection4: "Refunds",
+    returnsText2:
+      "Once your return is received and inspected, we will send you an email to notify you that we have received your returned item. We will also notify you of the approval or rejection of your refund. If approved, your refund will be processed within 5-10 business days.",
+
+    // Privacy Policy
+    privacyTitle: "Privacy Policy",
+    privacyLastUpdated: "Last updated: June 12, 2026",
+    privacySection1: "Introduction",
+    privacyText1:
+      "Pamir Mountain Shilajit ('we', 'our', or 'us') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or make a purchase.",
+    privacySection2: "Information We Collect",
+    privacyItem1: "Personal Information (name, email, phone, address)",
+    privacyItem2: "Payment Information (credit card details)",
+    privacyItem3: "Order History and Preferences",
+    privacyItem4: "Website Usage Data (cookies, analytics)",
+    privacySection3: "How We Use Your Information",
+    privacyUse1: "Process and ship your orders",
+    privacyUse2: "Send order confirmations and updates",
+    privacyUse3: "Respond to customer service requests",
+    privacyUse4: "Improve our website and services",
+    privacySection4: "Data Security",
+    privacyText2:
+      "We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that no security measures are perfect.",
+    privacySection5: "Contact Us",
+    privacyText3:
+      "If you have questions or comments about this Privacy Policy, please contact us at: contact@pamirshilajit.com",
+
+    // Terms of Service
+    termsTitle: "Terms of Service",
+    termsLastUpdated: "Last updated: June 12, 2026",
+    termsSection1: "Agreement to Terms",
+    termsText1:
+      "By accessing this website, you agree to be bound by these Terms of Service and to comply with all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.",
+    termsSection2: "Use License",
+    termsItem1: "Modify or copy the materials",
+    termsItem2: "Use the materials for any commercial purpose",
+    termsItem3: "Attempt to decompile or reverse engineer any software",
+    termsItem4: "Remove any copyright or proprietary notations",
+    termsSection3: "Disclaimer",
+    termsText2:
+      "The materials on Pamir Mountain Shilajit's website are provided on an 'as is' basis. Pamir Mountain Shilajit makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.",
+    termsSection4: "Limitations",
+    termsText3:
+      "In no event shall Pamir Mountain Shilajit or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Pamir Mountain Shilajit's website.",
+    termsSection5: "Governing Law",
+    termsText4:
+      "These terms and conditions are governed by and construed in accordance with the laws of Afghanistan and you irrevocably submit to the exclusive jurisdiction of the courts in that location.",
+
+    // Lab Reports
+    labReportsTitle: "Lab Reports & Certifications",
+    labReportsSubtitle: "Third-party tested for purity, potency, and safety",
+    certTitle1: "Third-Party Tested",
+    certDesc1: "Every batch tested by independent laboratories",
+    certTitle2: "Heavy Metal Free",
+    certDesc2: "Certified free from lead, mercury, arsenic, and cadmium",
+    certTitle3: "Pure & Authentic",
+    certDesc3: "Sourced from pristine Pamir Mountains",
+    testResultsTitle: "Test Results",
+    testFulvic: "Fulvic Acid Content",
+    testHeavyMetals: "Heavy Metals Test",
+    testMicrobial: "Microbial Analysis",
+    testPurity: "Overall Purity",
+    testPass: "PASS",
+    downloadTitle: "Request Full Lab Reports",
+    downloadText:
+      "For complete third-party lab reports and certificates of analysis, please contact us directly.",
+    downloadButton: "Request Reports",
+    viewFullReports: "View Full Reports & Certifications →",
   },
 
   da: {
@@ -394,5 +510,121 @@ export const translations = {
       "• به طور سنتی برای حمایت از انرژی و استقامت استفاده می‌شود",
     modalHarvested: "• برداشت شده از صخره‌های بلند پامیر",
     modalLabTested: "• آزمایش شده در آزمایشگاه برای خلوص و فلزات سنگین",
+
+    // Info Modal
+    modalTitle: "اطلاعات محصول",
+    infoOriginTitle: "منشأ پامیر",
+    infoOriginDesc:
+      "برداشت شده از صخر‌های دورافتاده و مرتفع کوه‌های پامیر، یکی از بکرترین و دست‌نخورده‌ترین مناطق کوهستانی جهان.",
+    infoWildTitle: "برداشت طبیعی",
+    infoWildDesc: "برداشت وحشی از تشکیل‌های طبیعی سنگ بدون پردازش صنعتی.",
+    infoPurityTitle: "خلوص",
+    infoPurityDesc:
+      "با دقت تصفیه شده برای حفظ پروفایل طبیعی مواد معدنی و ترکیبات زیستی فعال آن.",
+    infoDifferenceTitle: "چرا موملایی پامیر؟",
+    infoDifferenceDesc:
+      "در حالی که بیشتر موملایی از منابع تجاری شلوغ تأمین می‌شود، موملایی ما از کوه‌های نادر و صخره‌ای پامیر تأمین می‌شود.",
+    btnClose: "بستن",
+
+    // Shipping Info
+    shippingTitle: "اطلاعات حمل و نقل",
+    shippingSection1: "زمان پردازش",
+    shippingText1:
+      "تمام سفارشات در عرض ۱-۳ روز کاری پردازش می‌شوند. سفارشات در آخر هفته‌ها یا تعطیلات ارسال یا تحویل داده نمی‌شوند. اگر حجم بالایی از سفارشات را تجربه کنیم، ارسال‌ها ممکن است چند روز به تأخیر بیفتند.",
+    shippingSection2: "نرخ‌های حمل و نقل و زمان تحویل",
+    shippingItem1: "افغانستان: ۳-۵ روز کاری",
+    shippingItem2: "بین‌المللی: ۷-۱۴ روز کاری",
+    shippingItem3: "ارسال سریع برای سفارشات فوری موجود است",
+    shippingItem4: "ارسال رایگان برای سفارشات بالای ۱۰۰ دلار",
+    shippingSection3: "تأیید ارسال و پیگیری سفارش",
+    shippingText2:
+      "پس از ارسال سفارش، ایمیل تأیید ارسال حاوی شماره پیگیری دریافت خواهید کرد. شماره پیگیری در عرض ۲۴ ساعت فعال می‌شود.",
+    shippingSection4: "گمرک، عوارض و مالیات",
+    shippingText3:
+      "Pamir Mountain Shilajit مسئول هیچ گمرک و مالیاتی که به سفارش شما اعمال می‌شود نیست. تمام هزینه‌های اعمال شده در حین یا پس از ارسال بر عهده مشتری است.",
+
+    // Returns Policy
+    returnsTitle: "سیاست بازگشت کالا",
+    returnsSection1: "سیاست بازگشت",
+    returnsText1:
+      "ما سیاست بازگشت ۳۰ روزه داریم، به این معنی که ۳۰ روز پس از دریافت کالا فرصت دارید درخواست بازگشت دهید. برای واجد شرایط بودن، کالا باید در همان شرایطی باشد که دریافت کرده‌اید، استفاده نشده و در بسته‌بندی اصلی باشد.",
+    returnsSection2: "کالاهای غیرقابل بازگشت",
+    returnsItem1: "محصولات باز یا استفاده شده",
+    returnsItem2: "محصولات بدون بسته‌بندی اصلی",
+    returnsItem3: "کارت‌های هدیه",
+    returnsSection3: "نحوه شروع بازگشت",
+    returnsStep1: "به contact@pamirshilajit.com ایمیل بزنید",
+    returnsStep2: "شماره سفارش و دلیل بازگشت را ذکر کنید",
+    returnsStep3: "منتظر تأیید بازگشت بمانید",
+    returnsStep4: "کالا را در بسته‌بندی اصلی برگردانید",
+    returnsSection4: "بازپرداخت",
+    returnsText2:
+      "پس از دریافت و بررسی بازگشت شما، ایمیلی برای اطلاع‌رسانی ارسال می‌کنیم. اگر تأیید شود، بازپرداخت شما در عرض ۵-۱۰ روز کاری پردازش می‌شود.",
+
+    // Privacy Policy
+    privacyTitle: "سیاست حریم خصوصی",
+    privacyLastUpdated: "آخرین به‌روزرسانی: ۱۲ جون ۲۰۲۶",
+    privacySection1: "مقدمه",
+    privacyText1:
+      "Pamir Mountain Shilajit متعهد به حفاظت از حریم خصوصی شما است. این سیاست حریم خصوصی توضیح می‌دهد که چگونه اطلاعات شما را هنگام بازدید از وب‌سایت یا خرید جمع‌آوری، استفاده و افشا می‌کنیم.",
+    privacySection2: "اطلاعاتی که جمع‌آوری می‌کنیم",
+    privacyItem1: "اطلاعات شخصی (نام، ایمیل، تلفن، آدرس)",
+    privacyItem2: "اطلاعات پرداخت (جزئیات کارت اعتباری)",
+    privacyItem3: "تاریخچه سفارش و ترجیحات",
+    privacyItem4: "داده‌های استفاده از وب‌سایت (کوکی‌ها، آنالیتیکس)",
+    privacySection3: "چگونه از اطلاعات شما استفاده می‌کنیم",
+    privacyUse1: "پردازش و ارسال سفارشات شما",
+    privacyUse2: "ارسال تأییدیه‌ها و به‌روزرسانی‌های سفارش",
+    privacyUse3: "پاسخ به درخواست‌های خدمات مشتری",
+    privacyUse4: "بهبود وب‌سایت و خدمات ما",
+    privacySection4: "امنیت داده‌ها",
+    privacyText2:
+      "ما از اقدامات امنیتی اداری، فنی و فیزیکی برای کمک به حفاظت از اطلاعات شخصی شما استفاده می‌کنیم. در حالی که اقدامات معقولی برای ایمن‌سازی اطلاعات شخصی انجام داده‌ایم، هیچ اقدام امنیتی کامل نیست.",
+    privacySection5: "تماس با ما",
+    privacyText3:
+      "اگر سؤالی درباره این سیاست حریم خصوصی دارید، با ما تماس بگیرید: contact@pamirshilajit.com",
+
+    // Terms of Service
+    termsTitle: "شرایط استفاده",
+    termsLastUpdated: "آخرین به‌روزرسانی: ۱۲ جون ۲۰۲۶",
+    termsSection1: "توافق با شرایط",
+    termsText1:
+      "با دسترسی به این وب‌سایت، شما موافقت می‌کنید که به این شرایط استفاده متعهد باشید و از تمام قوانین و مقررات قابل اجرا پیروی کنید. اگر با هر یک از این شرایط موافق نیستید، استفاده از این سایت ممنوع است.",
+    termsSection2: "مجوز استفاده",
+    termsItem1: "مواد را تغییر یا کپی کنید",
+    termsItem2: "از مواد برای هر هدف تجاری استفاده کنید",
+    termsItem3: "تلاش برای مهندسی معکوس هر نرم‌افزار",
+    termsItem4: "حذف هرگونه یادداشت کپی‌رایت یا مالکیت",
+    termsSection3: "سلب مسئولیت",
+    termsText2:
+      "مواد وب‌سایت Pamir Mountain Shilajit بر اساس 'همان‌گونه که هست' ارائه می‌شوند. ما هیچ تضمینی، صریح یا ضمنی، ارائه نمی‌دهیم.",
+    termsSection4: "محدودیت‌ها",
+    termsText3:
+      "در هیچ حالتی Pamir Mountain Shilajit یا تأمین‌کنندگان آن مسئول هیچ خسارتی نخواهند بود (از جمله خسارات ناشی از از دست دادن داده یا سود، یا به دلیل اختلال در کسب‌وکار).",
+    termsSection5: "قانون حاکم",
+    termsText4:
+      "این شرایط تابع قوانین افغانستان است و شما به طور قطع‌ناپذیر به صلاحیت انحصاری دادگاه‌های آن محل تسلیم می‌شوید.",
+
+    // Lab Reports
+    labReportsTitle: "گزارش‌های آزمایشگاه و گواهینامه‌ها",
+    labReportsSubtitle:
+      "تست شده توسط آزمایشگاه‌های مستقل برای خلوص، قدرت و ایمنی",
+    certTitle1: "تست شده توسط شخص ثالث",
+    certDesc1: "هر دسته توسط آزمایشگاه‌های مستقل تست می‌شود",
+    certTitle2: "بدون فلزات سنگین",
+    certDesc2: "گواهی شده بدون سرب، جیوه، آرسنیک و کادمیوم",
+    certTitle3: "خالص و اصیل",
+    certDesc3: "برداشت شده از کوه‌های بکر پامیر",
+    testResultsTitle: "نتایج آزمایش",
+    testFulvic: "محتوای اسید فولویک",
+    testHeavyMetals: "تست فلزات سنگین",
+    testMicrobial: "آنالیز میکروبی",
+    testPurity: "خلوص کلی",
+    testPass: "قبول",
+    downloadTitle: "درخواست گزارش‌های کامل آزمایشگاه",
+    downloadText:
+      "برای گزارش‌های کامل آزمایشگاه و گواهینامه‌های تحلیل، لطفاً مستقیماً با ما تماس بگیرید.",
+    downloadButton: "درخواست گزارش‌ها",
+    viewFullReports: "مشاهده گزارش‌های کامل و گواهینامه‌ها ←",
   },
 };
