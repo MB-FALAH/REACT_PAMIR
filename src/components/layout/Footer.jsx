@@ -82,7 +82,7 @@ function Footer() {
               <li>
                 <a
                   href="/#order"
-                  className="text-gold hover:text-yellow-400 font-medium transition"
+                  className="text-matteBlack hover:text-white font-medium transition"
                 >
                   {t.orderTitle || "Order Now"}
                 </a>

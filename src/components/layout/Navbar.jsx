@@ -20,8 +20,10 @@ function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-darkGreen/95 backdrop-blur-md py-2" : "bg-primary py-4"
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-black/95 backdrop-blur-md py-2 shadow-2xl shadow-gold/10 border-b border-gold/20"
+          : "bg-black/80 backdrop-blur-md py-4"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -31,7 +33,7 @@ function Navbar() {
           <div className="flex items-center gap-2">
             <img
               src="./src/assets/logo/shilajit-logo2.png"
-              className="w-10 h-10 rounded-full"
+              className="w-10 h-10 rounded-full border-2 border-gold/30"
               alt="Logo"
             />
             <span className="font-serif text-lg font-bold text-gold whitespace-nowrap">
@@ -39,46 +41,51 @@ function Navbar() {
             </span>
           </div>
 
-          {/* Menu - Center - Links to homepage sections */}
+          {/* Menu - Center */}
           <nav className="flex justify-center gap-3 lg:gap-5">
             <a
               href="/#home"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition duration-300 relative group"
             >
               {t.navHome}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
               href="/#about"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition duration-300 relative group"
             >
               {t.navAbout}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
               href="/#products"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition duration-300 relative group"
             >
               {t.navProducts}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
               href="/#order"
-              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap text-sm lg:text-base transition"
+              className="text-white  hover:text-gold whitespace-nowrap text-sm lg:text-base transition duration-300 relative group"
             >
               {t.orderTitle || "Order Now"}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
               href="/#contact"
-              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition"
+              className="text-white hover:text-gold whitespace-nowrap text-sm lg:text-base transition duration-300 relative group"
             >
               {t.navContact}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
 
           {/* Language - Right */}
           <div className="flex justify-end">
-            <div className="flex items-center gap-1 border border-gold/30 rounded-full px-3 py-1">
+            <div className="flex items-center gap-1 border border-gold/30 rounded-full px-3 py-1 bg-black/50">
               <button
                 onClick={() => changeLanguage("en")}
-                className={`text-xs font-bold ${
+                className={`text-xs font-bold transition ${
                   language === "en"
                     ? "text-gold"
                     : "text-gray-400 hover:text-white"
@@ -89,7 +96,7 @@ function Navbar() {
               <span className="text-gold/30">|</span>
               <button
                 onClick={() => changeLanguage("da")}
-                className={`text-xs font-bold ${
+                className={`text-xs font-bold transition ${
                   language === "da"
                     ? "text-gold"
                     : "text-gray-400 hover:text-white"
@@ -106,7 +113,7 @@ function Navbar() {
           <div className="flex items-center gap-2">
             <img
               src="./src/assets/logo/shilajit-logo2.png"
-              className="w-10 h-10 rounded-full"
+              className="w-10 h-10 rounded-full border-2 border-gold/30"
               alt="Logo"
             />
             <span className="font-serif text-sm md:text-lg font-bold text-gold whitespace-nowrap">
@@ -115,10 +122,10 @@ function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 md:gap-4">
-            <div className="flex items-center gap-1 border border-gold/30 rounded-full px-2 py-1">
+            <div className="flex items-center gap-1 border border-gold/30 rounded-full px-2 py-1 bg-black/50">
               <button
                 onClick={() => changeLanguage("en")}
-                className={`text-xs font-bold ${
+                className={`text-xs font-bold transition ${
                   language === "en"
                     ? "text-gold"
                     : "text-gray-400 hover:text-white"
@@ -129,7 +136,7 @@ function Navbar() {
               <span className="text-gold/30">|</span>
               <button
                 onClick={() => changeLanguage("da")}
-                className={`text-xs font-bold ${
+                className={`text-xs font-bold transition ${
                   language === "da"
                     ? "text-gold"
                     : "text-gray-400 hover:text-white"
@@ -179,39 +186,39 @@ function Navbar() {
 
       {/* Mobile dropdown menu */}
       {mobileOpen && (
-        <div className="md:hidden absolute top-full inset-x-0 bg-darkGreen/95 backdrop-blur-md border-t border-gold/20">
+        <div className="md:hidden absolute top-full inset-x-0 bg-black/95 backdrop-blur-md border-t border-gold/20 animate-fade-in">
           <nav className="flex flex-col p-6 space-y-4">
             <a
               href="/#home"
-              className="text-white hover:text-gold whitespace-nowrap transition"
+              className="text-white hover:text-gold whitespace-nowrap transition duration-300"
               onClick={closeMobileMenu}
             >
               {t.navHome}
             </a>
             <a
               href="/#about"
-              className="text-white hover:text-gold whitespace-nowrap transition"
+              className="text-white hover:text-gold whitespace-nowrap transition duration-300"
               onClick={closeMobileMenu}
             >
               {t.navAbout}
             </a>
             <a
               href="/#products"
-              className="text-white hover:text-gold whitespace-nowrap transition"
+              className="text-white hover:text-gold whitespace-nowrap transition duration-300"
               onClick={closeMobileMenu}
             >
               {t.navProducts}
             </a>
             <a
               href="/#order"
-              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap transition"
+              className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap transition duration-300"
               onClick={closeMobileMenu}
             >
               {t.orderTitle || "Order Now"}
             </a>
             <a
               href="/#contact"
-              className="text-white hover:text-gold whitespace-nowrap transition"
+              className="text-white hover:text-gold whitespace-nowrap transition duration-300"
               onClick={closeMobileMenu}
             >
               {t.navContact}
