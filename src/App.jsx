@@ -24,7 +24,6 @@ import LabReportsPage from "./components/LabReportsPage";
 
 /**
  * HomePage Component
- * Contains all sections of the homepage
  */
 function HomePage() {
   return (
@@ -45,13 +44,12 @@ function HomePage() {
 
 /**
  * Main App Component
- * Uses Layout to wrap all routes with Navbar and Footer
  */
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Homepage - with Layout (Navbar + Footer) */}
+        {/* Homepage */}
         <Route
           path="/"
           element={
@@ -61,7 +59,7 @@ function App() {
           }
         />
 
-        {/* Customer Care Pages - with Layout */}
+        {/* Customer Care Pages */}
         <Route
           path="/shipping"
           element={
@@ -103,7 +101,7 @@ function App() {
           }
         />
 
-        {/* Admin Dashboard - NO Layout (standalone) */}
+        {/* Admin Dashboard */}
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </Router>
