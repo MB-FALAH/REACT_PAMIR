@@ -6,6 +6,7 @@ import ReviewModal from "./ReviewModal";
 /**
  * CustomerReviews Component
  * Displays customer reviews with ratings, sorting, and modal submission form
+ * Shows only 6 reviews at a time with scrollbar for the rest
  */
 function CustomerReviews() {
   const { t } = useLanguage();
@@ -14,57 +15,13 @@ function CustomerReviews() {
   const [sortBy, setSortBy] = useState("newest");
 
   /**
-   * Delete a review by ID
-   */
-  const handleDeleteReview = (reviewId) => {
-    if (window.confirm("Are you sure you want to delete this review?")) {
-      const updatedReviews = reviews.filter((review) => review.id !== reviewId);
-      setReviews(updatedReviews);
-      localStorage.setItem("customerReviews", JSON.stringify(updatedReviews));
-    }
-  };
-
-  /**
    * Load reviews from localStorage on component mount
-   * Initialize with default reviews if empty
    */
   useEffect(() => {
     const storedReviews = JSON.parse(
       localStorage.getItem("customerReviews") || "[]",
     );
-
-    if (storedReviews.length === 0) {
-      const defaultReviews = [
-        {
-          id: 1,
-          name: t.review1Name,
-          rating: 5,
-          text: t.review1Text.replace(/"/g, ""),
-          date: new Date().toISOString(),
-          verified: true,
-        },
-        {
-          id: 2,
-          name: t.review2Name,
-          rating: 5,
-          text: t.review2Text.replace(/"/g, ""),
-          date: new Date().toISOString(),
-          verified: true,
-        },
-        {
-          id: 3,
-          name: t.review3Name,
-          rating: 5,
-          text: t.review3Text.replace(/"/g, ""),
-          date: new Date().toISOString(),
-          verified: true,
-        },
-      ];
-      setReviews(defaultReviews);
-      localStorage.setItem("customerReviews", JSON.stringify(defaultReviews));
-    } else {
-      setReviews(storedReviews);
-    }
+    setReviews(storedReviews);
   }, [t]);
 
   // Calculate average rating
@@ -131,21 +88,23 @@ function CustomerReviews() {
             </div>
 
             {/* Rating distribution bars */}
-            <div className="mt-8 max-w-md mx-auto space-y-2">
-              {ratingDistribution.map(({ stars, count, percentage }) => (
-                <div key={stars} className="flex items-center gap-3">
-                  <span className="text-white w-3">{stars}</span>
-                  <span className="text-gold">★</span>
-                  <div className="flex-1 bg-gray-700 rounded-full h-2">
-                    <div
-                      className="bg-gold h-2 rounded-full transition-all"
-                      style={{ width: `${percentage}%` }}
-                    ></div>
+            {reviews.length > 0 && (
+              <div className="mt-8 max-w-md mx-auto space-y-2">
+                {ratingDistribution.map(({ stars, count, percentage }) => (
+                  <div key={stars} className="flex items-center gap-3">
+                    <span className="text-white w-3">{stars}</span>
+                    <span className="text-gold">★</span>
+                    <div className="flex-1 bg-gray-700 rounded-full h-2">
+                      <div
+                        className="bg-gold h-2 rounded-full transition-all"
+                        style={{ width: `${percentage}%` }}
+                      ></div>
+                    </div>
+                    <span className="text-gray-400 text-sm w-8">{count}</span>
                   </div>
-                  <span className="text-gray-400 text-sm w-8">{count}</span>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
             {/* Button to open review modal */}
             <button
@@ -181,58 +140,48 @@ function CustomerReviews() {
             </div>
           )}
 
-          {/* Reviews grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {sortedReviews.map((review) => (
-              <div
-                key={review.id}
-                className="bg-[#222222] p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow"
-              >
-                {/* Star rating display */}
-                <div className="flex text-gold mb-4">
-                  {"★".repeat(review.rating)}
-                  {"☆".repeat(5 - review.rating)}
-                </div>
+          {/* Reviews grid with scrollbar - shows only 6 reviews (2 rows × 3 columns) */}
+          {reviews.length > 0 ? (
+            <div className="reviews-grid-container max-w-6xl mx-auto">
+              {sortedReviews.map((review) => (
+                <div
+                  key={review.id}
+                  className="bg-[#222222] p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                >
+                  {/* Star rating display */}
+                  <div className="flex text-gold mb-4">
+                    {"★".repeat(review.rating)}
+                    {"☆".repeat(5 - review.rating)}
+                  </div>
 
-                {/* Review text */}
-                <p className="text-gray-300 mb-6 italic">"{review.text}"</p>
+                  {/* Review text */}
+                  <p className="text-gray-300 mb-6 italic">"{review.text}"</p>
 
-                {/* Reviewer info */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-primary font-bold">
-                      {review.name.charAt(0).toUpperCase()}
-                    </div>
-                    <div>
-                      <p className="font-bold text-white">{review.name}</p>
-                      <p className="text-xs text-gray-400">
-                        {review.verified
-                          ? t.verifiedBuyer
-                          : new Date(review.date).toLocaleDateString(
-                              document.documentElement.lang === "da"
-                                ? "fa-IR"
-                                : "en-US",
-                            )}
-                      </p>
+                  {/* Reviewer info */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-primary font-bold">
+                        {review.name.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <p className="font-bold text-white">{review.name}</p>
+                        <p className="text-xs text-gray-400">
+                          {review.verified
+                            ? t.verifiedBuyer
+                            : new Date(review.date).toLocaleDateString(
+                                document.documentElement.lang === "da"
+                                  ? "fa-IR"
+                                  : "en-US",
+                              )}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Delete button - ONLY show for non-verified reviews */}
-                {!review.verified && (
-                  <button
-                    onClick={() => handleDeleteReview(review.id)}
-                    className="mt-4 text-red-400 hover:text-red-500 text-sm flex items-center gap-1 transition-colors"
-                  >
-                    🗑 Delete Review
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Empty state message */}
-          {reviews.length === 0 && (
+              ))}
+            </div>
+          ) : (
+            /* Empty state message */
             <div className="text-center text-gray-400 py-12">{t.noReviews}</div>
           )}
         </div>

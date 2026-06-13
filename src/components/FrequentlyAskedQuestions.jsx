@@ -39,7 +39,7 @@ function FrequentlyAskedQuestions() {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-4 text-start bg-bg hover:bg-gray-100 flex justify-between items-center font-medium text-white hover:text-black transition-colors duration-200"
+                  className="w-full px-6 py-4 text-start bg-bg hover:bg-matteblack flex justify-between items-center font-medium text-white hover:text-text transition-colors duration-200"
                 >
                   <span>{t[faq.qKey]}</span>
                   <span
@@ -50,7 +50,7 @@ function FrequentlyAskedQuestions() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 py-4 bg-white text-gray-600 text-sm border-t border-gray-100">
+                  <div className="px-6 py-4 bg-card text-white text-sm border-t border-gray-100">
                     {t[faq.aKey]}
                   </div>
                 )}

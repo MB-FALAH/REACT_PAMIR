@@ -4,25 +4,107 @@
 /* style.css */
 /* =================================== */
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Thin & Elegant */
 html {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  /* Reduce root font-size to slightly shrink rem-based text and icons site-wide */
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #1a1a1a;
   font-size: 14px;
 }
 
+/* Webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 0;
+  width: 4px;
   height: 0;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #1a1a1a;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: transparent;
+  background: #d4af37;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f0d878;
+}
+
+/* Custom scrollbar for reviews container */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #f0d878;
+}
+
+/* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #1a1a1a;
+}
+
+/* =================================== */
+/* REVIEWS GRID - SHOW ONLY 6 REVIEWS */
+/* =================================== */
+
+/* Desktop: 3 columns × 2 rows = 6 reviews */
+.reviews-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  max-height: 550px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #1a1a1a;
+}
+
+/* Tablet: 2 columns × 3 rows = 6 reviews */
+@media (max-width: 1024px) {
+  .reviews-grid-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 850px;
+  }
+}
+
+/* Mobile: 1 column × 6 rows = 6 reviews */
+@media (max-width: 768px) {
+  .reviews-grid-container {
+    grid-template-columns: 1fr;
+    max-height: 1600px;
+  }
+}
+
+/* Custom scrollbar for reviews grid */
+.reviews-grid-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reviews-grid-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+.reviews-grid-container::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 10px;
+}
+
+.reviews-grid-container::-webkit-scrollbar-thumb:hover {
+  background: #f0d878;
 }
 
 /* =================================== */
@@ -91,7 +173,7 @@ html {
 }
 
 /* Glassmorphism for Navbar */
-Glassmorphism for Navbar .nav-glass {
+.nav-glass {
   background: rgba(7, 59, 40, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
