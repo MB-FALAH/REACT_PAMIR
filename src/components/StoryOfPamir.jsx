@@ -1,5 +1,5 @@
 // ./src/components/StoryOfPamir.jsx
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from '../context/LanguageContext';
 
 function StoryOfPamir() {
   const { t } = useLanguage();
@@ -31,7 +31,7 @@ function StoryOfPamir() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
+      <section className="py-5">
         <div className="container mx-auto px-6">
           {/* First Paragraph */}
           <div className="max-w-4xl mx-auto mb-16">
@@ -49,8 +49,8 @@ function StoryOfPamir() {
                 className="w-full h-80 object-cover transition duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-xl font-bold text-gold">
+              <div className="absolute bottom-3 left-0 right-0 px-3">
+                <h3 className="text-xl font-bold text-gold text-center p-3 tracking-wider bg-black/20 backdrop-blur-lg border border-gold/20 rounded-xl shadow-lg">
                   {t.storyImg1Title}
                 </h3>
               </div>
@@ -63,8 +63,8 @@ function StoryOfPamir() {
                 className="w-full h-80 object-cover transition duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-xl font-bold text-gold">
+              <div className="absolute bottom-3 left-0 right-0 px-3">
+                <h3 className="text-xl font-bold text-gold text-center p-3 tracking-wider bg-black/20 backdrop-blur-lg border border-gold/20 rounded-xl shadow-lg">
                   {t.storyImg2Title}
                 </h3>
               </div>
@@ -72,13 +72,13 @@ function StoryOfPamir() {
 
             <div className="relative group overflow-hidden rounded-2xl">
               <img
-                src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800"
-                alt="High Altitude"
+                src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800"
+                alt="Mountain Rocks"
                 className="w-full h-80 object-cover transition duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-xl font-bold text-gold">
+              <div className="absolute bottom-3 left-0 right-0 px-3">
+                <h3 className="text-xl font-bold text-gold text-center p-3 tracking-wider bg-black/20 backdrop-blur-lg border border-gold/20 rounded-xl shadow-lg">
                   {t.storyImg3Title}
                 </h3>
               </div>
@@ -93,16 +93,6 @@ function StoryOfPamir() {
           </div>
 
           {/* Full Width Image */}
-          <div className="mb-16">
-            <div className="relative overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1600"
-                alt="Pamir Landscape"
-                className="w-full h-125 object-cover"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
-            </div>
-          </div>
 
           {/* Mission Section */}
           <div className="bg-black p-12 rounded-3xl border border-gold/20 mb-16">
@@ -113,50 +103,11 @@ function StoryOfPamir() {
               <p className="text-lg text-gray-300 leading-relaxed">
                 {t.storyMissionText}
               </p>
+              <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                {t.storyFinalText}
+              </p>
             </div>
           </div>
-
-          {/* Final Image Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            <div className="relative group overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800"
-                alt="Mountain Rocks"
-                className="w-full h-96 object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div className="relative group overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800"
-                alt="Alpine Nature"
-                className="w-full h-96 object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-          </div>
-
-          {/* Final Message */}
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              {t.storyFinalText}
-            </p>
-            <div className="w-24 h-1 bg-gold mx-auto"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-20 bg-linear-to-b from-bg to-black">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="font-serif text-4xl font-bold text-gold mb-6">
-            {t.storyCTATitle}
-          </h2>
-          <p className="text-lg text-gray-400 mb-8">{t.storyCTAText}</p>
-          <a
-            href="/#order"
-            className="inline-block bg-gold text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition duration-300 shadow-lg hover:shadow-gold/50"
-          >
-            {t.storyCTAButton}
-          </a>
         </div>
       </section>
     </div>

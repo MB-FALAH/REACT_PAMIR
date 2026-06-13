@@ -1,7 +1,7 @@
 // ./src/components/ChooseYourResin.jsx
-import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
-import InfoModal from "./InfoModal";
+import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import InfoModal from './InfoModal';
 
 function ChooseYourResin() {
   const { t } = useLanguage();
@@ -27,11 +27,11 @@ function ChooseYourResin() {
               <div className="absolute top-0 right-0 w-48 h-48 bg-gold/10 rounded-full blur-3xl -mr-24 -mt-24"></div>
 
               {/* Product Image */}
-              <div className="h-56 flex items-center justify-center mb-6 relative z-10">
+              <div className="h-72 flex items-center justify-center mb-6 relative z-10">
                 <img
-                  src="./public/images/shilajit-0.png"
+                  src="/images/shilajit-0.png"
                   alt="30g Shilajit"
-                  className="w-40 h-48 object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500"
+                  className="w-96 h-[26rem] object-contain drop-shadow-xl  transition-transform duration-500"
                 />
               </div>
 
@@ -108,10 +108,10 @@ function ChooseYourResin() {
               <div className="bg-black p-5 rounded-xl shadow-lg border border-gold/20 hover:border-gold transition duration-300">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-gold mb-1">
-                    {t.featurePremium.split(" ")[0]}
+                    {t.featurePremium.split(' ')[0]}
                   </div>
                   <div className="text-gray-400 text-sm">
-                    {t.featurePremium.split(" ")[1]}
+                    {t.featurePremium.split(' ')[1]}
                   </div>
                 </div>
               </div>
