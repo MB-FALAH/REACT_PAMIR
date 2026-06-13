@@ -43,9 +43,9 @@ export const translations = {
     aboutTitle: "About Us",
     aboutSubtitle: "Our Story",
     aboutText1:
-      "Pamir Mountain Shilajit is sustainably harvested by hand at elevations exceeding 14,000 feet in the pristine Pamir range. Our commitment to purity begins with rigorous lab testing and ends with every drop of resin—unadulterated, wild-crafted, and ethically sourced.",
+      "Deep within the majestic Pamir Mountains, where nature has remained untouched for centuries, Shilajit forms naturally among high-altitude rock formations. Inspired by local traditions and a deep respect for nature, we carefully source and purify this precious substance from the mountains of Pamir.",
     aboutText2:
-      "This tradition spans generations of mountain families who know the land, the seasons, and the sacred rhythm of harvest.",
+      "Our mission goes beyond selling a product. We aim to share the natural heritage of the Pamir region with the world. Every jar of Pamir Shilajit represents purity, authenticity, and the enduring power of the mountains.",
     aboutTag1: "Since 1987",
     aboutTag2: "Sustainably Harvested",
     aboutTag3: "Lab-Tested Purity",
