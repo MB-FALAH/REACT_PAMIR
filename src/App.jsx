@@ -8,6 +8,7 @@ import Layout from "./components/layout/Layout";
 import Benefits from "./components/Benefits";
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
+import StoryOfPamir from "./components/StoryOfPamir";
 import ProductShowcase from "./components/ProductShowcase";
 import LuxuryWellnessAuthenticity from "./components/LuxuryWellnessAuthenticity";
 import LabReports from "./components/LabReports";
@@ -31,6 +32,7 @@ function HomePage() {
       <Home />
       <Benefits />
       <AboutUs />
+      <StoryOfPamir />
       <ProductShowcase />
       <LuxuryWellnessAuthenticity />
       <LabReports />
@@ -109,7 +111,3 @@ function App() {
 }
 
 export default App;
-
-// Admin Panel
-// مدیریت نظرات
-// http://localhost:5173/admin/reviews

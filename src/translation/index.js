@@ -43,9 +43,9 @@ export const translations = {
     aboutTitle: "About Us",
     aboutSubtitle: "Our Story",
     aboutText1:
-      "Pamir Mountain Shilajit is sustainably harvested by hand at elevations exceeding 14,000 feet in the pristine Pamir range. Our commitment to purity begins with rigorous lab testing and ends with every drop of resin—unadulterated, wild-crafted, and ethically sourced.",
+      "Deep within the majestic Pamir Mountains, where nature has remained untouched for centuries, Shilajit forms naturally among high-altitude rock formations. Inspired by local traditions and a deep respect for nature, we carefully source and purify this precious substance from the mountains of Pamir.",
     aboutText2:
-      "This tradition spans generations of mountain families who know the land, the seasons, and the sacred rhythm of harvest.",
+      "Our mission goes beyond selling a product. We aim to share the natural heritage of the Pamir region with the world. Every jar of Pamir Shilajit represents purity, authenticity, and the enduring power of the mountains.",
     aboutTag1: "Since 1987",
     aboutTag2: "Sustainably Harvested",
     aboutTag3: "Lab-Tested Purity",
@@ -315,6 +315,26 @@ export const translations = {
       "For complete third-party lab reports and certificates of analysis, please contact us directly.",
     downloadButton: "Request Reports",
     viewFullReports: "View Full Reports & Certifications →",
+
+    // Story of Pamir
+    storyTitle: "The Story of Pamir",
+    storySubtitle:
+      "Far above the clouds, where the rugged peaks of the Pamir Mountains meet the sky, nature has been shaping its treasures for centuries.",
+    storyText1:
+      "Known as the 'Roof of the World,' the Pamir region remains one of the most remote and untouched mountain landscapes on Earth. It is here, among ancient cliffs and extreme altitudes, that our Shilajit is carefully sourced.",
+    storyText2:
+      "Inspired by the purity of the mountains and the traditions of the people who have lived among them for generations, we are committed to bringing the authentic essence of Pamir to the world.",
+    storyImg1Title: "Majestic Peaks",
+    storyImg2Title: "Ancient Valleys",
+    storyImg3Title: "High Altitude",
+    storyMissionTitle: "Our Mission",
+    storyMissionText:
+      "Every jar of Pamir Mountain Shilajit carries a connection to this extraordinary land — a symbol of nature, heritage, and authenticity.",
+    storyFinalText:
+      "We aim to share the natural heritage of the Pamir region with the world. Every product represents purity, authenticity, and the enduring power of the mountains.",
+    storyCTATitle: "Experience the Power of Pamir",
+    storyCTAText: "Discover the authentic essence of the mountains",
+    storyCTAButton: "Order Now",
   },
 
   da: {
@@ -354,9 +374,9 @@ export const translations = {
     aboutTitle: "درباره ما",
     aboutSubtitle: "داستان ما",
     aboutText1:
-      "موملایی کوه‌های پامیر به صورت پایدار و با دست در ارتفاعات بیش از ۱۴۰۰۰ فوت در رشته‌کوه دست‌نخورده پامیر برداشت می‌شود. تعهد ما به خلوص با آزمایش‌های دقیق آزمایشگاهی آغاز می‌شود و با هر قطره رزین - خالص، برداشت وحشی و با منبع اخلاقی - به پایان می‌رسد.",
+      "در اعماق کوه‌های باشکوه پامیر، جایی که طبیعت قرن‌ها دست‌نخورده باقی مانده است، موملایی به طور طبیعی در میان سنگ‌های ارتفاعات بلند شکل می‌گیرد. با الهام از سنت‌های محلی و احترام عمیق به طبیعت، ما این ماده ارزشمند را با دقت از کوه‌های پامیر تهیه و تصفیه می‌کنیم.",
     aboutText2:
-      "این سنت نسل‌ها از خانواده‌های کوهستانی را در بر می‌گیرد که زمین، فصل‌ها و ریتم مقدس برداشت را می‌شناسند.",
+      "مأموریت ما فراتر از فروش یک محصول است. ما هدف داریم میراث طبیعی منطقه پامیر را با جهان به اشتراک بگذاریم. هر شیشه موملایی پامیر نمایانگر خلوص، اصالت و قدرت ماندگار کوه‌ها است.",
     aboutTag1: "از سال ۱۹۸۷",
     aboutTag2: "برداشت پایدار",
     aboutTag3: "خلوص آزمایشگاهی",
@@ -626,5 +646,25 @@ export const translations = {
       "برای گزارش‌های کامل آزمایشگاه و گواهینامه‌های تحلیل، لطفاً مستقیماً با ما تماس بگیرید.",
     downloadButton: "درخواست گزارش‌ها",
     viewFullReports: "مشاهده گزارش‌های کامل و گواهینامه‌ها ←",
+
+    // Story of Pamir
+    storyTitle: "داستان پامیر",
+    storySubtitle:
+      "بسیار فراتر از ابرها، جایی که قله‌های صخره‌ای کوه‌های پامیر به آسمان می‌رسند، طبیعت قرن‌هاست که گنجینه‌های خود را شکل می‌دهد.",
+    storyText1:
+      "منطقه پامیر که به بام جهان معروف است، یکی از دورافتاده‌ترین و دست‌نخورده‌ترین مناظر کوهستانی روی زمین باقی مانده است. در اینجا، در میان صخره‌های باستانی و ارتفاعات بسیار بلند، موملایی ما با دقت تهیه می‌شود.",
+    storyText2:
+      "با الهام از خلوص کوه‌ها و سنت‌های مردمی که نسل‌ها در میان آنها زندگی کرده‌اند، ما متعهد به آوردن اصالت واقعی پامیر به جهان هستیم.",
+    storyImg1Title: "قله‌های باشکوه",
+    storyImg2Title: "دره‌های باستانی",
+    storyImg3Title: "ارتفاعات بلند",
+    storyMissionTitle: "مأموریت ما",
+    storyMissionText:
+      "هر شیشه موملایی کوه‌های پامیر ارتباطی با این سرزمین فوق‌العاده دارد - نمادی از طبیعت، میراث و اصالت.",
+    storyFinalText:
+      "ما هدف داریم میراث طبیعی منطقه پامیر را با جهان به اشتراک بگذاریم. هر محصول نمایانگر خلوص، اصالت و قدرت ماندگار کوه‌ها است.",
+    storyCTATitle: "قدرت پامیر را تجربه کنید",
+    storyCTAText: "اصالت واقعی کوه‌ها را کشف کنید",
+    storyCTAButton: "همین حالا سفارش دهید",
   },
 };
