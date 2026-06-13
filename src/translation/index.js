@@ -1,5 +1,3 @@
-// ./src/translation/index.js
-
 /**
  * Complete translations for the website
  * Supports English (en) and Dari (da)
@@ -101,10 +99,10 @@ export const translations = {
     badgePopular: "POPULAR",
     orderTitle: "Order Now ",
     orderSubtitle: "100% Raw & Unprocessed • Rich in Fulvic Acid",
-    featureNatural: "Natural & Pure",
+    featureNatural: "Naturally Purified",
     featureLab: "Tested & Verified",
     featureFulvic: "Fulvic Acid Content",
-    featurePremium: "Mountain Quality",
+    featurePremium: "Wild Harvested",
     trustMountains: "Pamir Mountains",
     trustAltitude: "14,000+ ft Altitude",
     trustLab: "Lab Certified",
@@ -201,7 +199,6 @@ export const translations = {
     modalLabTested: "• Lab-tested for purity and heavy metals",
 
     // Info Modal
-    modalTitle: "Product Information",
     infoOriginTitle: "Pamir Origin",
     infoOriginDesc:
       "Sourced from the remote high-altitude cliffs of the Pamir Mountains, one of the world's most pristine and untouched mountain regions.",
@@ -432,10 +429,10 @@ export const translations = {
     badgePopular: "محبوب",
     orderTitle: "سفارش دهید",
     orderSubtitle: "۱۰۰٪ خام و فرآوری نشده • غنی از اسید فولویک",
-    featureNatural: "طبیعی و خالص",
+    featureNatural: "به طور طبیعی تصفیه شده",
     featureLab: "تست و تأیید شده",
     featureFulvic: "محتوای اسید فولویک",
-    featurePremium: "کیفیت کوهستانی",
+    featurePremium: "برداشت وحشی",
     trustMountains: "کوه‌های پامیر",
     trustAltitude: "ارتفاع بیش از ۱۴۰۰۰ فوت",
     trustLab: "گواهی آزمایشگاهی",
@@ -532,7 +529,6 @@ export const translations = {
     modalLabTested: "• آزمایش شده در آزمایشگاه برای خلوص و فلزات سنگین",
 
     // Info Modal
-    modalTitle: "اطلاعات محصول",
     infoOriginTitle: "منشأ پامیر",
     infoOriginDesc:
       "برداشت شده از صخر‌های دورافتاده و مرتفع کوه‌های پامیر، یکی از بکرترین و دست‌نخورده‌ترین مناطق کوهستانی جهان.",
