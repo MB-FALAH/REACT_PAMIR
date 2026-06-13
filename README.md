@@ -13,15 +13,18 @@ Language: JavaScript / JSX
 🚀 Quick Start
 
 bash
+
 # Install dependencies
- npm install
+
+npm install
 
 # Start the development server
- npm run dev
+
+npm run dev
 
 # Build for production
- npm run build
 
+npm run build
 
 📞 Order & Contact
 📱 WhatsApp: +93 700 123 456
