@@ -41,10 +41,10 @@ export const translations = {
     aboutTitle: "About Us",
     aboutSubtitle: "Our Story",
     aboutText1:
-      "Deep within the majestic Pamir Mountains, where nature has remained untouched for centuries, Shilajit forms naturally among high-altitude rock formations. Inspired by local traditions and a deep respect for nature, we carefully source and purify this precious substance from the mountains of Pamir.",
+      "Pamir Mountain Shilajit was inspired by the untamed beauty of the Pamir Mountains, often known as the “Roof of the World.” Rising to elevations above 4,000 meters (13,000 feet), this remote mountain region is home to some of the most pristine natural environments on Earth.",
     aboutText2:
-      "Our mission goes beyond selling a product. We aim to share the natural heritage of the Pamir region with the world. Every jar of Pamir Shilajit represents purity, authenticity, and the enduring power of the mountains.",
-    aboutTag1: "Since 1987",
+      "Our mission is to bring the authenticity and natural heritage of the Pamir Mountains to people around the world. Carefully sourced and purified, our Shilajit reflects the purity, strength, and character of this extraordinary high-altitude landscape. Every jar represents a connection to the mountains, the traditions of the region, and the enduring power of nature.",
+    // aboutTag1: "Since 1987",
     aboutTag2: "Sustainably Harvested",
     aboutTag3: "Lab-Tested Purity",
 
@@ -371,9 +371,9 @@ export const translations = {
     aboutTitle: "درباره ما",
     aboutSubtitle: "داستان ما",
     aboutText1:
-      "در اعماق کوه‌های باشکوه پامیر، جایی که طبیعت قرن‌ها دست‌نخورده باقی مانده است، موملایی به طور طبیعی در میان سنگ‌های ارتفاعات بلند شکل می‌گیرد. با الهام از سنت‌های محلی و احترام عمیق به طبیعت، ما این ماده ارزشمند را با دقت از کوه‌های پامیر تهیه و تصفیه می‌کنیم.",
+      "شلاجیت کوه‌های پامیر از زیبایی بکر و دست‌نخورده کوه‌های پامیر، که اغلب به نام «بام دنیا» شناخته می‌شود، الهام گرفته شده است. این منطقه دورافتاده کوهستانی با ارتفاعی بیش از ۴۰۰۰ متر (۱۳۰۰۰ فوت)، میزبان برخی از بکرترین و دست‌نخورده‌ترین محیط‌های طبیعی روی زمین است.",
     aboutText2:
-      "مأموریت ما فراتر از فروش یک محصول است. ما هدف داریم میراث طبیعی منطقه پامیر را با جهان به اشتراک بگذاریم. هر شیشه موملایی پامیر نمایانگر خلوص، اصالت و قدرت ماندگار کوه‌ها است.",
+      "مأموریت ما این است که اصالت و میراث طبیعی کوه‌های پامیر را به مردم سراسر جهان برسانیم. شلاجیت ما که با دقت استخراج و تصفیه شده است، بازتاب‌دهنده خلوص، قدرت و ماهیت این چشم‌انداز بی‌نظیر و مرتفع است. هر شیشه، نمادی از پیوند با کوه‌ها، سنت‌های این منطقه و قدرت ماندگار طبیعت است.",
     aboutTag1: "از سال ۱۹۸۷",
     aboutTag2: "برداشت پایدار",
     aboutTag3: "خلوص آزمایشگاهی",

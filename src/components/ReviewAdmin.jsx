@@ -4,7 +4,8 @@ import { useLanguage } from "../context/LanguageContext";
 
 /**
  * AdminDashboard Component
- * Simplified admin panel with only Reviews and Newsletter
+ * Complete admin panel with Reviews, Newsletter, and Settings
+ * Includes Password Hint and Security Question features
  */
 function AdminDashboard() {
   const { t } = useLanguage();
@@ -23,6 +24,9 @@ function AdminDashboard() {
   const [currentPasswordInput, setCurrentPasswordInput] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordHint, setPasswordHint] = useState("");
+  const [securityQuestion, setSecurityQuestion] = useState("");
+  const [securityAnswer, setSecurityAnswer] = useState("");
 
   /**
    * Initialize default admin user
@@ -55,8 +59,22 @@ function AdminDashboard() {
         localStorage.getItem("newsletterSubscribers") || "[]",
       );
       setSubscribers(storedSubscribers);
+
+      // Load hint and security question
+      if (currentUser) {
+        const hint =
+          localStorage.getItem(`passwordHint_${currentUser.id}`) || "";
+        const question =
+          localStorage.getItem(`securityQuestion_${currentUser.id}`) || "";
+        const answer =
+          localStorage.getItem(`securityAnswer_${currentUser.id}`) || "";
+
+        setPasswordHint(hint);
+        setSecurityQuestion(question);
+        setSecurityAnswer(answer);
+      }
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, currentUser]);
 
   /**
    * Handle admin login
@@ -185,9 +203,48 @@ function AdminDashboard() {
     alert("✓ Password changed successfully!");
   };
 
+  /**
+   * Save password hint
+   */
+  const handleSaveHint = () => {
+    if (!passwordHint.trim()) {
+      alert("Please enter a password hint");
+      return;
+    }
+
+    localStorage.setItem(`passwordHint_${currentUser.id}`, passwordHint);
+    alert("✓ Password hint saved successfully!");
+  };
+
+  /**
+   * Save security question and answer
+   */
+  const handleSaveSecurity = () => {
+    if (!securityQuestion || !securityAnswer.trim()) {
+      alert("Please select a question and provide an answer");
+      return;
+    }
+
+    localStorage.setItem(
+      `securityQuestion_${currentUser.id}`,
+      securityQuestion,
+    );
+    localStorage.setItem(`securityAnswer_${currentUser.id}`, securityAnswer);
+    alert("✓ Security question saved successfully!");
+  };
+
   // ==================== LOGIN SCREEN ====================
 
   if (!isAuthenticated) {
+    // Get password hint for current user
+    const storedUsers = JSON.parse(localStorage.getItem("adminUsers") || "[]");
+    const currentUserData = storedUsers.find(
+      (u) => u.username === loginUsername,
+    );
+    const currentHint = currentUserData
+      ? localStorage.getItem(`passwordHint_${currentUserData.id}`) || ""
+      : "";
+
     return (
       <div className="min-h-screen bg-bg flex items-center justify-center p-4">
         <div className="bg-black p-8 rounded-2xl shadow-2xl max-w-md w-full border border-gold/30">
@@ -238,6 +295,15 @@ function AdminDashboard() {
             </button>
           </form>
 
+          {/* Password Hint Display */}
+          {currentHint && (
+            <div className="mt-4 p-3 bg-gold/10 border border-gold/30 rounded-lg">
+              <p className="text-xs text-gold text-center">
+                💡 <span className="font-bold">Hint:</span> {currentHint}
+              </p>
+            </div>
+          )}
+
           <p className="text-xs text-gray-500 mt-4 text-center">
             Default: admin / admin123
           </p>
@@ -267,7 +333,7 @@ function AdminDashboard() {
           </button>
         </div>
 
-        {/* Tabs - Only Reviews and Newsletter */}
+        {/* Tabs */}
         <div className="flex gap-2 mb-8 border-b border-gold/20 overflow-x-auto">
           <button
             onClick={() => setActiveTab("reviews")}
@@ -484,8 +550,8 @@ function AdminDashboard() {
 
         {/* ==================== SETTINGS TAB ==================== */}
         {activeTab === "settings" && (
-          <div>
-            {/* Change Password Only */}
+          <div className="space-y-8">
+            {/* Change Password */}
             <div className="bg-black p-6 rounded-xl border border-gold/20">
               <h3 className="text-xl font-bold text-gold mb-4">
                 🔐 Change Password
@@ -537,6 +603,144 @@ function AdminDashboard() {
                 >
                   🔐 Change Password
                 </button>
+              </div>
+            </div>
+
+            {/* Password Hint */}
+            <div className="bg-black p-6 rounded-xl border border-gold/20">
+              <h3 className="text-xl font-bold text-gold mb-4">
+                💡 Password Hint
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Set a hint to help you remember your password. This will be
+                shown on the login page.
+              </p>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Password Hint
+                  </label>
+                  <input
+                    type="text"
+                    value={passwordHint}
+                    onChange={(e) => setPasswordHint(e.target.value)}
+                    className="w-full px-4 py-2 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold outline-none"
+                    placeholder="e.g., My favorite mountain + birth year"
+                  />
+                </div>
+
+                <button
+                  onClick={handleSaveHint}
+                  className="bg-gold text-primary px-6 py-2 rounded-lg font-bold hover:bg-yellow-400 transition"
+                >
+                  💡 Save Hint
+                </button>
+
+                {passwordHint && (
+                  <div className="mt-4 p-3 bg-gold/10 border border-gold/30 rounded-lg">
+                    <p className="text-sm text-gold">
+                      <span className="font-bold">Current Hint:</span>{" "}
+                      {passwordHint}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Security Question */}
+            <div className="bg-black p-6 rounded-xl border border-gold/20">
+              <h3 className="text-xl font-bold text-gold mb-4">
+                🛡️ Security Question
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Set a security question for account recovery.
+              </p>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Select Question
+                  </label>
+                  <select
+                    value={securityQuestion}
+                    onChange={(e) => setSecurityQuestion(e.target.value)}
+                    className="w-full px-4 py-2 bg-black border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold outline-none"
+                  >
+                    <option value="" className="bg-black text-white">
+                      -- Select a question --
+                    </option>
+                    <option
+                      value="What is your favorite mountain?"
+                      className="bg-black text-white"
+                    >
+                      What is your favorite mountain?
+                    </option>
+                    <option
+                      value="What year were you born?"
+                      className="bg-black text-white"
+                    >
+                      What year were you born?
+                    </option>
+                    <option
+                      value="What is your favorite color?"
+                      className="bg-black text-white"
+                    >
+                      What is your favorite color?
+                    </option>
+                    <option
+                      value="What city were you born in?"
+                      className="bg-black text-white"
+                    >
+                      What city were you born in?
+                    </option>
+                    <option
+                      value="What is your pet's name?"
+                      className="bg-black text-white"
+                    >
+                      What is your pet's name?
+                    </option>
+                    <option
+                      value="What is your mother's maiden name?"
+                      className="bg-black text-white"
+                    >
+                      What is your mother's maiden name?
+                    </option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Your Answer
+                  </label>
+                  <input
+                    type="text"
+                    value={securityAnswer}
+                    onChange={(e) => setSecurityAnswer(e.target.value)}
+                    className="w-full px-4 py-2 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold outline-none"
+                    placeholder="Enter your answer"
+                  />
+                </div>
+
+                <button
+                  onClick={handleSaveSecurity}
+                  className="bg-gold text-primary px-6 py-2 rounded-lg font-bold hover:bg-yellow-400 transition"
+                >
+                  🛡️ Save Security Question
+                </button>
+
+                {securityQuestion && securityAnswer && (
+                  <div className="mt-4 p-3 bg-gold/10 border border-gold/30 rounded-lg">
+                    <p className="text-sm text-gold">
+                      <span className="font-bold">Question:</span>{" "}
+                      {securityQuestion}
+                    </p>
+                    <p className="text-sm text-gold mt-1">
+                      <span className="font-bold">Answer:</span>{" "}
+                      {"•".repeat(securityAnswer.length)}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

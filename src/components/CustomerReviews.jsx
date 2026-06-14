@@ -15,6 +15,15 @@ function CustomerReviews() {
   const [sortBy, setSortBy] = useState("newest");
 
   /**
+   * Truncate text to maximum length
+   */
+  const truncateText = (text, maxLength = 300) => {
+    if (!text) return "";
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + "...";
+  };
+
+  /**
    * Load reviews from localStorage on component mount
    */
   useEffect(() => {
@@ -146,7 +155,7 @@ function CustomerReviews() {
               {sortedReviews.map((review) => (
                 <div
                   key={review.id}
-                  className="bg-[#222222] p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                  className="bg-[#222222] p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow flex flex-col h-full"
                 >
                   {/* Star rating display */}
                   <div className="flex text-gold mb-4">
@@ -154,27 +163,27 @@ function CustomerReviews() {
                     {"☆".repeat(5 - review.rating)}
                   </div>
 
-                  {/* Review text */}
-                  <p className="text-gray-300 mb-6 italic">"{review.text}"</p>
+                  {/* Review text - truncated to 300 characters with word wrap */}
+                  <p className="text-gray-300 mb-6 italic wrap-break-word overflow-hidden text-sm leading-relaxed grow">
+                    "{truncateText(review.text, 300)}"
+                  </p>
 
-                  {/* Reviewer info */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-primary font-bold">
-                        {review.name.charAt(0).toUpperCase()}
-                      </div>
-                      <div>
-                        <p className="font-bold text-white">{review.name}</p>
-                        <p className="text-xs text-gray-400">
-                          {review.verified
-                            ? t.verifiedBuyer
-                            : new Date(review.date).toLocaleDateString(
-                                document.documentElement.lang === "da"
-                                  ? "fa-IR"
-                                  : "en-US",
-                              )}
-                        </p>
-                      </div>
+                  {/* Reviewer info - at the bottom */}
+                  <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gold/10">
+                    <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-primary font-bold shrink-0">
+                      {review.name.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="font-bold text-white">{review.name}</p>
+                      <p className="text-xs text-gray-400">
+                        {review.verified
+                          ? t.verifiedBuyer
+                          : new Date(review.date).toLocaleDateString(
+                              document.documentElement.lang === "da"
+                                ? "fa-IR"
+                                : "en-US",
+                            )}
+                      </p>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 // ./src/components/StoryOfPamir.jsx
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from "../context/LanguageContext";
 
 function StoryOfPamir() {
   const { t } = useLanguage();
@@ -9,16 +9,16 @@ function StoryOfPamir() {
       {/* Hero Section with Mountain Background */}
       <section className="relative h-[60vh] overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1545569341-9eb8b3097999?w=1920')",
-          }}
+          className="absolute inset-0 bg-black bg-cover bg-center bg-no-repeat"
+          // style={{
+          //   backgroundImage:
+          //     "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80')",
+          // }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
+        <div className="relative z-10 container mx-auto px-6 h-full flex items-center text-center justify-center">
           <div className="max-w-3xl">
             <h1 className="font-serif text-5xl md:text-6xl font-bold text-gold mb-6 animate-fade-in-up">
               {t.storyTitle}
@@ -31,7 +31,7 @@ function StoryOfPamir() {
       </section>
 
       {/* Main Content */}
-      <section className="py-5">
+      <section className="py-5 bg-contact-bg bg-cover bg-center bg-fixed relative">
         <div className="container mx-auto px-6">
           {/* First Paragraph */}
           <div className="max-w-4xl mx-auto mb-16">

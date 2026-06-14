@@ -23,9 +23,9 @@ function AboutUs() {
             <p className="text-text leading-relaxed mb-6">{t.aboutText1}</p>
             <p className="text-text leading-relaxed">{t.aboutText2}</p>
             <div className="mt-8 flex justify-center gap-4 flex-wrap">
-              <span className="px-4 py-1 bg-matteBlack text-primary rounded-full text-sm font-medium">
+              {/* <span className="px-4 py-1 bg-matteBlack text-primary rounded-full text-sm font-medium">
                 {t.aboutTag1}
-              </span>
+              </span> */}
               <span className="px-4 py-1 bg-matteBlack text-primary rounded-full text-sm font-medium">
                 {t.aboutTag2}
               </span>
