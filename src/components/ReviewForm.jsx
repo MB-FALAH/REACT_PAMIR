@@ -1,6 +1,6 @@
 // ./src/components/ReviewForm.jsx
-import { useState, useEffect } from "react";
-import { useLanguage } from "../context/LanguageContext";
+import { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 /**
  * ReviewModal Component
@@ -11,9 +11,9 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
 
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [reviewText, setReviewText] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [reviewText, setReviewText] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -22,8 +22,8 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
    */
   useEffect(() => {
     if (isOpen) {
-      const savedName = localStorage.getItem("reviewerName");
-      const savedEmail = localStorage.getItem("reviewerEmail");
+      const savedName = localStorage.getItem('reviewerName');
+      const savedEmail = localStorage.getItem('reviewerEmail');
       if (savedName) setName(savedName);
       if (savedEmail) setEmail(savedEmail);
     }
@@ -34,14 +34,14 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
    */
   useEffect(() => {
     if (email && !name) {
-      const emailName = email.split("@")[0];
-      const cleanName = emailName.replace(/[0-9._]/g, " ").trim();
+      const emailName = email.split('@')[0];
+      const cleanName = emailName.replace(/[0-9._]/g, ' ').trim();
       if (cleanName) {
         setName(
           cleanName
-            .split(" ")
+            .split(' ')
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" "),
+            .join(' '),
         );
       }
     }
@@ -52,19 +52,19 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
    */
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === "Escape" && isOpen) {
+      if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      document.body.style.overflow = "hidden";
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
 
@@ -82,8 +82,8 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
     setIsSubmitting(true);
 
     // Save user info to localStorage
-    localStorage.setItem("reviewerName", name.trim());
-    localStorage.setItem("reviewerEmail", email.trim());
+    localStorage.setItem('reviewerName', name.trim());
+    localStorage.setItem('reviewerEmail', email.trim());
 
     const newReview = {
       id: Date.now(),
@@ -96,18 +96,18 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
     };
 
     const existingReviews = JSON.parse(
-      localStorage.getItem("customerReviews") || "[]",
+      localStorage.getItem('customerReviews') || '[]',
     );
     existingReviews.push(newReview);
-    localStorage.setItem("customerReviews", JSON.stringify(existingReviews));
+    localStorage.setItem('customerReviews', JSON.stringify(existingReviews));
 
     onReviewSubmit(newReview);
 
     // Reset form
-    setReviewText("");
+    setReviewText('');
     setRating(0);
-    setName("");
-    setEmail("");
+    setName('');
+    setEmail('');
     setIsSubmitting(false);
     setShowSuccess(true);
 
@@ -182,7 +182,7 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
                     onMouseEnter={() => setHoverRating(star)}
                     onMouseLeave={() => setHoverRating(0)}
                     className="text-5xl focus:outline-none transition-all hover:scale-125"
-                    aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
+                    aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
                   >
                     {star <= (hoverRating || rating) ? (
                       <span className="text-gold drop-shadow-lg">★</span>
