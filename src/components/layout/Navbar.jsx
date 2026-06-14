@@ -1,7 +1,7 @@
 // ./src/components/layout/Navbar.jsx
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useLanguage } from "../../context/LanguageContext";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,8 +12,8 @@ function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const closeMobileMenu = () => setMobileOpen(false);
@@ -22,8 +22,8 @@ function Navbar() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/95 backdrop-blur-md py-2 shadow-2xl shadow-gold/10 border-b border-gold/20"
-          : "bg-black/80 backdrop-blur-md py-4"
+          ? 'bg-black/95 backdrop-blur-md py-3 shadow-2xl shadow-gold/10 border-b border-gold/20'
+          : 'bg-black/80 backdrop-blur-md py-4'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -68,7 +68,7 @@ function Navbar() {
               href="/#order"
               className="text-white  hover:text-gold whitespace-nowrap text-sm lg:text-base transition duration-300 relative group"
             >
-              {t.orderTitle || "Order Now"}
+              {t.orderTitle || 'Order Now'}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
@@ -84,22 +84,22 @@ function Navbar() {
           <div className="flex justify-end">
             <div className="flex items-center gap-1 border border-gold/30 rounded-full px-3 py-1 bg-black/50">
               <button
-                onClick={() => changeLanguage("en")}
+                onClick={() => changeLanguage('en')}
                 className={`text-xs font-bold transition ${
-                  language === "en"
-                    ? "text-gold"
-                    : "text-gray-400 hover:text-white"
+                  language === 'en'
+                    ? 'text-gold'
+                    : 'text-gray-400 hover:text-white'
                 }`}
               >
                 EN
               </button>
               <span className="text-gold/30">|</span>
               <button
-                onClick={() => changeLanguage("da")}
+                onClick={() => changeLanguage('da')}
                 className={`text-xs font-bold transition ${
-                  language === "da"
-                    ? "text-gold"
-                    : "text-gray-400 hover:text-white"
+                  language === 'da'
+                    ? 'text-gold'
+                    : 'text-gray-400 hover:text-white'
                 }`}
               >
                 دری
@@ -124,22 +124,22 @@ function Navbar() {
           <div className="flex items-center gap-2 md:gap-4">
             <div className="flex items-center gap-1 border border-gold/30 rounded-full px-2 py-1 bg-black/50">
               <button
-                onClick={() => changeLanguage("en")}
+                onClick={() => changeLanguage('en')}
                 className={`text-xs font-bold transition ${
-                  language === "en"
-                    ? "text-gold"
-                    : "text-gray-400 hover:text-white"
+                  language === 'en'
+                    ? 'text-gold'
+                    : 'text-gray-400 hover:text-white'
                 }`}
               >
                 EN
               </button>
               <span className="text-gold/30">|</span>
               <button
-                onClick={() => changeLanguage("da")}
+                onClick={() => changeLanguage('da')}
                 className={`text-xs font-bold transition ${
-                  language === "da"
-                    ? "text-gold"
-                    : "text-gray-400 hover:text-white"
+                  language === 'da'
+                    ? 'text-gold'
+                    : 'text-gray-400 hover:text-white'
                 }`}
               >
                 دری
@@ -214,7 +214,7 @@ function Navbar() {
               className="text-gold font-bold hover:text-yellow-400 whitespace-nowrap transition duration-300"
               onClick={closeMobileMenu}
             >
-              {t.orderTitle || "Order Now"}
+              {t.orderTitle || 'Order Now'}
             </a>
             <a
               href="/#contact"

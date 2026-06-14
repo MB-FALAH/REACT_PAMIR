@@ -1,6 +1,6 @@
 // ./src/components/GetInTouch.jsx
-import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
+import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 /**
  * GetInTouch Component
@@ -9,11 +9,11 @@ import { useLanguage } from "../context/LanguageContext";
  */
 function GetInTouch() {
   const { t } = useLanguage();
-  const [status, setStatus] = useState("idle"); // idle, loading, success, error
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
 
   /**
@@ -30,12 +30,12 @@ function GetInTouch() {
    */
   const handleSubmit = (e) => {
     // Let FormSubmit handle the submission
-    setStatus("loading");
+    setStatus('loading');
 
     // FormSubmit will redirect, so we set a timeout to reset status
     setTimeout(() => {
-      setStatus("idle");
-      setFormData({ name: "", email: "", message: "" });
+      setStatus('idle');
+      setFormData({ name: '', email: '', message: '' });
     }, 3000);
   };
 
@@ -48,7 +48,7 @@ function GetInTouch() {
             <h2 className="font-serif text-4xl font-bold text-white mb-4">
               {t.contactTitle}
             </h2>
-            <p className="text-gray-600 text-lg">{t.contactSubtitle}</p>
+            <p className="text-gray-400 text-lg">{t.contactSubtitle}</p>
           </div>
 
           {/* MAIN CARD */}
@@ -66,9 +66,10 @@ function GetInTouch() {
                     <svg
                       className="w-6 h-6 text-gold shrink-0 mt-1"
                       fill="currentColor"
-                      viewBox="0 0 20 20"
+                      stroke="none"
+                      viewBox="0 0 24 24"
                     >
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773c.418 1.738 1.997 4.368 4.332 6.701.333.333.742.531 1.173.63.022 0 .044-.001.065-.003l.041.003c.431.099.84.297 1.173.63 2.335-2.333 3.914-4.963 4.332-6.701l-1.548-.773a1 1 0 01-.54-1.06l.74-4.435A1 1 0 0115.847 2H18a1 1 0 011 1v2.847a1 1 0 01-.138.52l-.738 1.154a1 1 0 01-.986.336l-4.435-.74a1 1 0 01-1.06.54l-.773 1.548c1.738.418 4.368 1.997 6.701 4.332.333.333.531.742.63 1.173 0 .022-.001.044-.003.065l.003.041c.099.431.297.84.63 1.173-2.333 2.335-4.963 3.914-6.701 4.332l.773-1.548a1 1 0 01.54-1.06l4.435.74a1 1 0 01.986-.336l1.154.738A1 1 0 0118 18v-2.153a1 1 0 01-.836-.986l-.477-2.384a6 6 0 00-.517-3.86l.158-.318a6 6 0 01.517-3.86l.477-2.384A1 1 0 0118 5.847V3z"></path>
+                      <path d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.02 3.06a1 1 0 01-.272 1.04L7.21 9.79a16.001 16.001 0 006.99 6.99l1.006-1.766a1 1 0 011.04-.272l3.06 1.02A1 1 0 0121 17.72V20a2 2 0 01-2 2h-1C9.163 22 2 14.837 2 6V5z" />
                     </svg>
                     <a
                       href="tel:+93700123456"
@@ -163,7 +164,7 @@ function GetInTouch() {
                   <input
                     type="text"
                     name="_honey"
-                    style={{ display: "none" }}
+                    style={{ display: 'none' }}
                   />
 
                   {/* NAME */}
@@ -218,10 +219,10 @@ function GetInTouch() {
                   {/* BUTTON */}
                   <button
                     type="submit"
-                    disabled={status === "loading"}
+                    disabled={status === 'loading'}
                     className="w-full bg-gold text-darkGreen font-bold py-3 rounded-xl hover:bg-lightGold transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === "loading" ? (
+                    {status === 'loading' ? (
                       <span className="flex items-center justify-center gap-2">
                         <svg
                           className="animate-spin h-5 w-5"
@@ -250,7 +251,7 @@ function GetInTouch() {
                   </button>
 
                   {/* Success Message */}
-                  {status === "success" && (
+                  {status === 'success' && (
                     <p className="text-green-400 text-sm text-center">
                       ✓ Message sent successfully!
                     </p>

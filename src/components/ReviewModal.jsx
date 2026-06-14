@@ -1,6 +1,6 @@
 // ./src/components/ReviewModal.jsx
-import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
+import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 /**
  * ReviewModal Component
@@ -11,9 +11,9 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
   const { t } = useLanguage();
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
-  const [name, setName] = useState("");
-  const [reviewText, setReviewText] = useState("");
-  const [error, setError] = useState("");
+  const [name, setName] = useState('');
+  const [reviewText, setReviewText] = useState('');
+  const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const MAX_CHARACTERS = 300;
@@ -25,7 +25,7 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
     const text = e.target.value;
     if (text.length <= MAX_CHARACTERS) {
       setReviewText(text);
-      setError("");
+      setError('');
     } else {
       setError(`Maximum ${MAX_CHARACTERS} characters allowed`);
     }
@@ -36,9 +36,9 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
    */
   const resetForm = () => {
     setRating(0);
-    setName("");
-    setReviewText("");
-    setError("");
+    setName('');
+    setReviewText('');
+    setError('');
     setIsSubmitting(false);
   };
 
@@ -50,17 +50,17 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
 
     // Validation
     if (!rating) {
-      setError("Please select a rating");
+      setError('Please select a rating');
       return;
     }
 
     if (!name.trim()) {
-      setError("Please enter your name");
+      setError('Please enter your name');
       return;
     }
 
     if (!reviewText.trim()) {
-      setError("Please write your review");
+      setError('Please write your review');
       return;
     }
 
@@ -83,10 +83,10 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
 
     // Save to localStorage
     const existingReviews = JSON.parse(
-      localStorage.getItem("customerReviews") || "[]",
+      localStorage.getItem('customerReviews') || '[]',
     );
     const updatedReviews = [newReview, ...existingReviews];
-    localStorage.setItem("customerReviews", JSON.stringify(updatedReviews));
+    localStorage.setItem('customerReviews', JSON.stringify(updatedReviews));
 
     // Call parent callback
     onReviewSubmit(newReview);
@@ -149,8 +149,8 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
                   <span
                     className={
                       star <= (hoverRating || rating)
-                        ? "text-gold"
-                        : "text-gray-600"
+                        ? 'text-gold'
+                        : 'text-gray-600'
                     }
                   >
                     ★
@@ -188,10 +188,10 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
             <textarea
               value={reviewText}
               onChange={handleReviewTextChange}
-              className={`w-full px-4 py-3 bg-white/5 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition resize-none ${
+              className={`w-full px-4 py-3 bg-white/5 border text-white rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition resize-none ${
                 reviewText.length > MAX_CHARACTERS
-                  ? "border-red-500"
-                  : "border-gold/30"
+                  ? 'border-red-500'
+                  : 'border-gold/30'
               }`}
               placeholder={t.reviewPlaceholder}
               rows={6}
@@ -209,13 +209,13 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
                   <span className="text-gray-400">
                     <span
                       className={
-                        reviewText.length > 250 ? "text-yellow-400" : ""
+                        reviewText.length > 250 ? 'text-yellow-400' : ''
                       }
                     >
                       {reviewText.length}
                     </span>
                     <span className="text-gray-500">
-                      {" "}
+                      {' '}
                       / {MAX_CHARACTERS} characters
                     </span>
                   </span>
@@ -227,8 +227,8 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
                     <span
                       className={
                         MAX_CHARACTERS - reviewText.length < 50
-                          ? "text-yellow-400"
-                          : ""
+                          ? 'text-yellow-400'
+                          : ''
                       }
                     >
                       {MAX_CHARACTERS - reviewText.length}
@@ -248,10 +248,10 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
               <div
                 className={`h-2 rounded-full transition-all ${
                   reviewText.length > MAX_CHARACTERS
-                    ? "bg-red-500"
+                    ? 'bg-red-500'
                     : reviewText.length > 250
-                      ? "bg-yellow-500"
-                      : "bg-gold"
+                      ? 'bg-yellow-500'
+                      : 'bg-gold'
                 }`}
                 style={{
                   width: `${Math.min((reviewText.length / MAX_CHARACTERS) * 100, 100)}%`,
@@ -267,8 +267,8 @@ function ReviewModal({ isOpen, onClose, onReviewSubmit }) {
               disabled={isSubmitting || reviewText.length > MAX_CHARACTERS}
               className={`flex-1 py-3 rounded-lg font-bold transition ${
                 isSubmitting || reviewText.length > MAX_CHARACTERS
-                  ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-                  : "bg-gold text-primary hover:bg-yellow-400"
+                  ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                  : 'bg-gold text-primary hover:bg-yellow-400'
               }`}
             >
               {isSubmitting ? t.submitting : t.submitReview}

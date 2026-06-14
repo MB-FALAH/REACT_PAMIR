@@ -1,5 +1,5 @@
 // ./src/components/StoryOfPamir.jsx
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from '../context/LanguageContext';
 
 function StoryOfPamir() {
   const { t } = useLanguage();
@@ -26,6 +26,11 @@ function StoryOfPamir() {
             <p className="text-xl text-white leading-relaxed">
               {t.storySubtitle}
             </p>
+            <div className="max-w-4xl mx-auto mb-16 my-10">
+              <p className="text-xl text-white leading-relaxed text-center">
+                {t.storyText1}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -34,11 +39,6 @@ function StoryOfPamir() {
       <section className="py-5 bg-contact-bg bg-cover bg-center bg-fixed relative">
         <div className="container mx-auto px-6">
           {/* First Paragraph */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <p className="text-lg text-gray-300 leading-relaxed text-center">
-              {t.storyText1}
-            </p>
-          </div>
 
           {/* Image Grid 1 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
