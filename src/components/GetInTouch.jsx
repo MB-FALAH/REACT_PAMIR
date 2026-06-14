@@ -72,11 +72,11 @@ function GetInTouch() {
                       <path d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.02 3.06a1 1 0 01-.272 1.04L7.21 9.79a16.001 16.001 0 006.99 6.99l1.006-1.766a1 1 0 011.04-.272l3.06 1.02A1 1 0 0121 17.72V20a2 2 0 01-2 2h-1C9.163 22 2 14.837 2 6V5z" />
                     </svg>
                     <a
-                      href="tel:+93700123456"
+                      href="tel:+971 56 825 3269"
                       className="text-lg font-semibold hover:text-lightGold transition"
                       dir="ltr"
                     >
-                      +93 700 123 456
+                      +971 56 825 3269
                     </a>
                   </div>
 
@@ -91,11 +91,11 @@ function GetInTouch() {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg>
                     <a
-                      href="mailto:contact@pamirshilajit.com"
+                      href="mailto:sales@pamirmountainshilajit.com"
                       className="text-lg font-semibold hover:text-lightGold transition"
                       dir="ltr"
                     >
-                      contact@pamirshilajit.com
+                      sales@pamirmountainshilajit.com
                     </a>
                   </div>
 
