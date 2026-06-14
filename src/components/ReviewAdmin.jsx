@@ -6,6 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
  * AdminDashboard Component
  * Complete admin panel with Reviews, Newsletter, and Settings
  * Includes Password Hint and Security Question features
+ * Security question appears after 3 failed login attempts
  */
 function AdminDashboard() {
   const { t } = useLanguage();
@@ -15,6 +16,17 @@ function AdminDashboard() {
   const [loginUsername, setLoginUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
+
+  // Security Question states for login
+  const [showSecurityQuestion, setShowSecurityQuestion] = useState(false);
+  const [securityQuestionForLogin, setSecurityQuestionForLogin] = useState("");
+  const [securityAnswerInput, setSecurityAnswerInput] = useState("");
+  const [securityError, setSecurityError] = useState("");
+  const [tempUserData, setTempUserData] = useState(null);
+
+  // Failed login attempts tracking
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const MAX_ATTEMPTS = 3;
 
   // Data states
   const [reviews, setReviews] = useState([]);
@@ -43,6 +55,10 @@ function AdminDashboard() {
       };
       localStorage.setItem("adminUsers", JSON.stringify([defaultAdmin]));
     }
+
+    // Load failed attempts from localStorage
+    const attempts = localStorage.getItem("failedLoginAttempts") || "0";
+    setFailedAttempts(parseInt(attempts));
   }, []);
 
   /**
@@ -83,20 +99,123 @@ function AdminDashboard() {
     e.preventDefault();
 
     const storedUsers = JSON.parse(localStorage.getItem("adminUsers") || "[]");
-    const user = storedUsers.find(
-      (u) => u.username === loginUsername && u.password === password,
-    );
+    const user = storedUsers.find((u) => u.username === loginUsername);
 
-    if (user) {
+    if (!user) {
+      setLoginError("Invalid username or password");
+      setPassword("");
+      setShowSecurityQuestion(false);
+      return;
+    }
+
+    // Check if password is correct
+    if (user.password === password) {
+      // Successful login - reset failed attempts
       setIsAuthenticated(true);
       setCurrentUser(user);
       setLoginError("");
       setLoginUsername("");
       setPassword("");
-    } else {
-      setLoginError("Invalid username or password");
-      setPassword("");
+      setShowSecurityQuestion(false);
+
+      // Reset failed attempts counter
+      localStorage.removeItem("failedLoginAttempts");
+      setFailedAttempts(0);
+      return;
     }
+
+    // Password is wrong - increment failed attempts
+    const currentAttempts = failedAttempts + 1;
+    localStorage.setItem("failedLoginAttempts", currentAttempts.toString());
+    setFailedAttempts(currentAttempts);
+
+    // Check if max attempts reached and security question exists
+    const question = localStorage.getItem(`securityQuestion_${user.id}`) || "";
+
+    if (currentAttempts >= MAX_ATTEMPTS && question) {
+      setSecurityQuestionForLogin(question);
+      setTempUserData(user);
+      setShowSecurityQuestion(true);
+      setLoginError(
+        `⚠️ ${MAX_ATTEMPTS} failed attempts. Please answer security question to reset password.`,
+      );
+    } else if (currentAttempts >= MAX_ATTEMPTS && !question) {
+      setLoginError(
+        `⚠️ ${MAX_ATTEMPTS} failed attempts. No security question set. Contact administrator.`,
+      );
+    } else {
+      // Show remaining attempts
+      const remaining = MAX_ATTEMPTS - currentAttempts;
+      setLoginError(
+        `❌ Incorrect password. ${remaining} attempt${
+          remaining === 1 ? "" : "s"
+        } remaining before security question appears.`,
+      );
+    }
+
+    setPassword("");
+  };
+
+  /**
+   * Handle security question verification
+   */
+  const handleSecurityQuestionSubmit = (e) => {
+    e.preventDefault();
+
+    if (!tempUserData) return;
+
+    const storedAnswer =
+      localStorage.getItem(`securityAnswer_${tempUserData.id}`) || "";
+
+    if (
+      securityAnswerInput.toLowerCase().trim() ===
+      storedAnswer.toLowerCase().trim()
+    ) {
+      // Security question answered correctly - allow password reset
+      const newPassword = prompt("Enter your new password (min 6 characters):");
+      if (newPassword && newPassword.length >= 6) {
+        const storedUsers = JSON.parse(
+          localStorage.getItem("adminUsers") || "[]",
+        );
+        const updated = storedUsers.map((u) => {
+          if (u.id === tempUserData.id) {
+            return { ...u, password: newPassword };
+          }
+          return u;
+        });
+
+        localStorage.setItem("adminUsers", JSON.stringify(updated));
+
+        // Reset failed attempts
+        localStorage.removeItem("failedLoginAttempts");
+        setFailedAttempts(0);
+
+        alert(
+          "✓ Password reset successfully! You can now login with your new password.",
+        );
+
+        setShowSecurityQuestion(false);
+        setTempUserData(null);
+        setSecurityAnswerInput("");
+        setSecurityError("");
+        setLoginError("");
+      } else if (newPassword) {
+        alert("Password must be at least 6 characters");
+      }
+    } else {
+      setSecurityError("Incorrect answer. Please try again.");
+    }
+  };
+
+  /**
+   * Cancel security question and go back to login
+   */
+  const cancelSecurityQuestion = () => {
+    setShowSecurityQuestion(false);
+    setTempUserData(null);
+    setSecurityAnswerInput("");
+    setSecurityError("");
+    setLoginError("");
   };
 
   /**
@@ -245,6 +364,10 @@ function AdminDashboard() {
       ? localStorage.getItem(`passwordHint_${currentUserData.id}`) || ""
       : "";
 
+    const currentSecurityQuestion = currentUserData
+      ? localStorage.getItem(`securityQuestion_${currentUserData.id}`) || ""
+      : "";
+
     return (
       <div className="min-h-screen bg-bg flex items-center justify-center p-4">
         <div className="bg-black p-8 rounded-2xl shadow-2xl max-w-md w-full border border-gold/30">
@@ -253,56 +376,143 @@ function AdminDashboard() {
           </h2>
 
           {loginError && (
-            <div className="bg-red-900/50 border border-red-500 text-red-300 px-4 py-3 rounded-lg mb-4">
+            <div
+              className={`px-4 py-3 rounded-lg mb-4 ${
+                failedAttempts >= MAX_ATTEMPTS
+                  ? "bg-red-900/50 border border-red-500 text-red-300"
+                  : "bg-yellow-900/50 border border-yellow-500 text-yellow-300"
+              }`}
+            >
               {loginError}
             </div>
           )}
 
-          <form onSubmit={handleLogin}>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Username
-              </label>
-              <input
-                type="text"
-                value={loginUsername}
-                onChange={(e) => setLoginUsername(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition"
-                placeholder="Enter username"
-                required
-              />
-            </div>
+          {/* Security Question Form */}
+          {showSecurityQuestion && securityQuestionForLogin ? (
+            <form onSubmit={handleSecurityQuestionSubmit} className="space-y-4">
+              <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-4">
+                <p className="text-sm text-red-400 mb-2 font-bold">
+                  ⚠️ Security Verification Required
+                </p>
+                <p className="text-white font-medium mb-2">
+                  {securityQuestionForLogin}
+                </p>
+              </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Password
-              </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition"
-                placeholder="Enter password"
-                required
-              />
-            </div>
+              {securityError && (
+                <div className="bg-red-900/50 border border-red-500 text-red-300 px-4 py-3 rounded-lg">
+                  {securityError}
+                </div>
+              )}
 
-            <button
-              type="submit"
-              className="w-full bg-gold text-primary py-3 px-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
-            >
-              Login
-            </button>
-          </form>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Your Answer
+                </label>
+                <input
+                  type="text"
+                  value={securityAnswerInput}
+                  onChange={(e) => setSecurityAnswerInput(e.target.value)}
+                  className="w-full px-4 py-3 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition"
+                  placeholder="Enter your answer"
+                  required
+                  autoFocus
+                />
+              </div>
 
-          {/* Password Hint Display */}
-          {currentHint && (
+              <div className="flex gap-3">
+                <button
+                  type="submit"
+                  className="flex-1 bg-gold text-primary py-3 px-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
+                >
+                  ✓ Verify & Reset Password
+                </button>
+                <button
+                  type="button"
+                  onClick={cancelSecurityQuestion}
+                  className="px-4 py-3 bg-gray-700 text-white rounded-lg font-bold hover:bg-gray-600 transition"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          ) : (
+            /* Regular Login Form */
+            <form onSubmit={handleLogin}>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  value={loginUsername}
+                  onChange={(e) => setLoginUsername(e.target.value)}
+                  className="w-full px-4 py-3 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition"
+                  placeholder="Enter username"
+                  required
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 bg-white/5 border border-gold/30 text-white rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition"
+                  placeholder="Enter password"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gold text-primary py-3 px-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
+              >
+                Login
+              </button>
+            </form>
+          )}
+
+          {/* Failed Attempts Warning */}
+          {!showSecurityQuestion &&
+            failedAttempts > 0 &&
+            failedAttempts < MAX_ATTEMPTS && (
+              <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-500/30 rounded-lg">
+                <p className="text-xs text-yellow-400 text-center">
+                  ⚠️ <span className="font-bold">Failed Attempts:</span>{" "}
+                  {failedAttempts} / {MAX_ATTEMPTS}
+                </p>
+                <p className="text-xs text-yellow-500/70 text-center mt-1">
+                  After {MAX_ATTEMPTS} failed attempts, security question will
+                  be required
+                </p>
+              </div>
+            )}
+
+          {/* Password Hint Display - ONLY show after 1+ failed attempts */}
+          {!showSecurityQuestion && failedAttempts >= 1 && currentHint && (
             <div className="mt-4 p-3 bg-gold/10 border border-gold/30 rounded-lg">
               <p className="text-xs text-gold text-center">
                 💡 <span className="font-bold">Hint:</span> {currentHint}
               </p>
             </div>
           )}
+
+          {/* Security Question Display - ONLY show after 3 failed attempts */}
+          {!showSecurityQuestion &&
+            failedAttempts >= MAX_ATTEMPTS &&
+            currentUserData &&
+            currentSecurityQuestion && (
+              <div className="mt-2 p-3 bg-red-900/30 border border-red-500/30 rounded-lg">
+                <p className="text-xs text-red-400 text-center">
+                  🛡️ <span className="font-bold">Security Question:</span>{" "}
+                  {currentSecurityQuestion}
+                </p>
+              </div>
+            )}
 
           <p className="text-xs text-gray-500 mt-4 text-center">
             Default: admin / admin123
@@ -654,7 +864,8 @@ function AdminDashboard() {
                 🛡️ Security Question
               </h3>
               <p className="text-gray-400 text-sm mb-4">
-                Set a security question for account recovery.
+                Set a security question for account recovery. This will appear
+                after 3 failed login attempts.
               </p>
 
               <div className="space-y-4">
