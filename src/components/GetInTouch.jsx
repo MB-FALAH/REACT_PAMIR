@@ -1,6 +1,6 @@
 // ./src/components/GetInTouch.jsx
-import { useState } from 'react';
-import { useLanguage } from '../context/LanguageContext';
+import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 /**
  * GetInTouch Component
@@ -9,11 +9,11 @@ import { useLanguage } from '../context/LanguageContext';
  */
 function GetInTouch() {
   const { t } = useLanguage();
-  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const [status, setStatus] = useState("idle"); // idle, loading, success, error
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   /**
@@ -30,12 +30,12 @@ function GetInTouch() {
    */
   const handleSubmit = (e) => {
     // Let FormSubmit handle the submission
-    setStatus('loading');
+    setStatus("loading");
 
     // FormSubmit will redirect, so we set a timeout to reset status
     setTimeout(() => {
-      setStatus('idle');
-      setFormData({ name: '', email: '', message: '' });
+      setStatus("idle");
+      setFormData({ name: "", email: "", message: "" });
     }, 3000);
   };
 
@@ -76,7 +76,7 @@ function GetInTouch() {
                       className="text-lg font-semibold hover:text-lightGold transition"
                       dir="ltr"
                     >
-                      +971 56 825 3269
+                      +971-568-253-269
                     </a>
                   </div>
 
@@ -164,7 +164,7 @@ function GetInTouch() {
                   <input
                     type="text"
                     name="_honey"
-                    style={{ display: 'none' }}
+                    style={{ display: "none" }}
                   />
 
                   {/* NAME */}
@@ -219,10 +219,10 @@ function GetInTouch() {
                   {/* BUTTON */}
                   <button
                     type="submit"
-                    disabled={status === 'loading'}
+                    disabled={status === "loading"}
                     className="w-full bg-gold text-darkGreen font-bold py-3 rounded-xl hover:bg-lightGold transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === 'loading' ? (
+                    {status === "loading" ? (
                       <span className="flex items-center justify-center gap-2">
                         <svg
                           className="animate-spin h-5 w-5"
@@ -251,7 +251,7 @@ function GetInTouch() {
                   </button>
 
                   {/* Success Message */}
-                  {status === 'success' && (
+                  {status === "success" && (
                     <p className="text-green-400 text-sm text-center">
                       ✓ Message sent successfully!
                     </p>
