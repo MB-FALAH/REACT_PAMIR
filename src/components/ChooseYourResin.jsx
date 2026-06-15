@@ -69,7 +69,7 @@ function ChooseYourResin() {
                     {t.btnInfo}
                   </button>
                   <a
-                    href="https://wa.me/93700123456"
+                    href="https://wa.me/971568253269"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 bg-transparent text-gold py-3 rounded-lg font-bold text-sm hover:bg-gold hover:text-black transition border-2 border-gold"
