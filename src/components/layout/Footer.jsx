@@ -69,6 +69,8 @@ const handleSubscribe = async (e) => {
             <div className="flex items-center gap-2 mb-4">
               <img
                 src="/logo/shilajit-logo2.png"
+                src="./src/assets/logo/shilajit-logo2.webp"
+                className="w-8 h-8 rounded-full object-cover"
                 alt="Logo"
                 className="w-8 h-8 rounded-full"
               />
@@ -112,6 +114,42 @@ const handleSubscribe = async (e) => {
           </div>
 
           {/* NEWSLETTER */}
+          {/* Third column: Customer care - Links to separate pages */}
+          <div>
+            <h4 className="font-bold text-gold mb-4">{t.footerCustomerCare}</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>
+                <Link to="/shipping" className="hover:text-white transition">
+                  {t.footerShipping}
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/returns" className="hover:text-white transition">
+                  {t.footerReturns}
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/privacy" className="hover:text-white transition">
+                  {t.footerPrivacy}
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/terms" className="hover:text-white transition">
+                  {t.footerTerms}
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/lab-reports" className="hover:text-white transition">
+                  {t.footerLab}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          {/* Fourth column: Newsletter */}
           <div>
             <h4 className="text-gold font-bold mb-4">
               {t.footerNewsletter}

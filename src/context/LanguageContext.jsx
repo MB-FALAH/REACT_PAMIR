@@ -1,35 +1,26 @@
 // ./src/context/LanguageContext.jsx
-import { createContext, useContext, useState } from "react";
-import { translations } from "../translation/index.js";
+import { createContext, useContext, useState, useEffect } from 'react';
+import { translations } from '../translation/index.js';
 
-/**
- * Language Context for managing translations
- * Provides language state and translation function to all components
- */
 const LanguageContext = createContext();
 
-/**
- * Language Provider Component
- * Wraps the app and provides language context to all children
- */
 export function LanguageProvider({ children }) {
-  // Initialize language from localStorage or default to English
   const [language, setLanguage] = useState(() => {
-    return localStorage.getItem("preferredLang") || "en";
+    return localStorage.getItem('preferredLang') || 'en';
   });
 
-  /**
-   * Change language and persist to localStorage
-   * Also updates HTML lang attribute and text direction
-   */
+  // Runs on first load AND every language change
+  useEffect(() => {
+    localStorage.setItem('preferredLang', language);
+
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === 'da' ? 'rtl' : 'ltr';
+  }, [language]);
+
   const changeLanguage = (lang) => {
     setLanguage(lang);
-    localStorage.setItem("preferredLang", lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "da" ? "rtl" : "ltr";
   };
 
-  // Get translations for current language
   const t = translations[language];
 
   return (
@@ -39,10 +30,6 @@ export function LanguageProvider({ children }) {
   );
 }
 
-/**
- * Custom hook to access language context
- * Returns current language, changeLanguage function, and translations
- */
 export function useLanguage() {
   return useContext(LanguageContext);
 }

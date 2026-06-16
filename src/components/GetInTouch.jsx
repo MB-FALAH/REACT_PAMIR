@@ -1,6 +1,6 @@
 // ./src/components/GetInTouch.jsx
-import { useState } from 'react';
-import { useLanguage } from '../context/LanguageContext';
+import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 /**
  * GetInTouch Component
@@ -9,11 +9,11 @@ import { useLanguage } from '../context/LanguageContext';
  */
 function GetInTouch() {
   const { t } = useLanguage();
-  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const [status, setStatus] = useState("idle"); // idle, loading, success, error
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   /**
@@ -30,12 +30,12 @@ function GetInTouch() {
    */
   const handleSubmit = (e) => {
     // Let FormSubmit handle the submission
-    setStatus('loading');
+    setStatus("loading");
 
     // FormSubmit will redirect, so we set a timeout to reset status
     setTimeout(() => {
-      setStatus('idle');
-      setFormData({ name: '', email: '', message: '' });
+      setStatus("idle");
+      setFormData({ name: "", email: "", message: "" });
     }, 3000);
   };
 
@@ -72,11 +72,11 @@ function GetInTouch() {
                       <path d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.02 3.06a1 1 0 01-.272 1.04L7.21 9.79a16.001 16.001 0 006.99 6.99l1.006-1.766a1 1 0 011.04-.272l3.06 1.02A1 1 0 0121 17.72V20a2 2 0 01-2 2h-1C9.163 22 2 14.837 2 6V5z" />
                     </svg>
                     <a
-                      href="tel:+93700123456"
+                      href="tel:+971 56 825 3269"
                       className="text-lg font-semibold hover:text-lightGold transition"
                       dir="ltr"
                     >
-                      +93 700 123 456
+                      +971-568-253-269
                     </a>
                   </div>
 
@@ -91,11 +91,11 @@ function GetInTouch() {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg>
                     <a
-                      href="mailto:contact@pamirshilajit.com"
+                      href="mailto:sales@pamirmountainshilajit.com"
                       className="text-lg font-semibold hover:text-lightGold transition"
                       dir="ltr"
                     >
-                      contact@pamirshilajit.com
+                      sales@pamirmountainshilajit.com
                     </a>
                   </div>
 
@@ -164,7 +164,7 @@ function GetInTouch() {
                   <input
                     type="text"
                     name="_honey"
-                    style={{ display: 'none' }}
+                    style={{ display: "none" }}
                   />
 
                   {/* NAME */}
@@ -219,10 +219,10 @@ function GetInTouch() {
                   {/* BUTTON */}
                   <button
                     type="submit"
-                    disabled={status === 'loading'}
+                    disabled={status === "loading"}
                     className="w-full bg-gold text-darkGreen font-bold py-3 rounded-xl hover:bg-lightGold transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === 'loading' ? (
+                    {status === "loading" ? (
                       <span className="flex items-center justify-center gap-2">
                         <svg
                           className="animate-spin h-5 w-5"
@@ -251,7 +251,7 @@ function GetInTouch() {
                   </button>
 
                   {/* Success Message */}
-                  {status === 'success' && (
+                  {status === "success" && (
                     <p className="text-green-400 text-sm text-center">
                       ✓ Message sent successfully!
                     </p>
