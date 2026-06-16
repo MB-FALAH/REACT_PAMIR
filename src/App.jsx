@@ -22,6 +22,9 @@ import ReturnsPolicy from "./components/ReturnsPolicy";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfService from "./components/TermsOfService";
 import LabReportsPage from "./components/LabReportsPage";
+import SignupForm from "./components/SignupForm";
+import AdminLogin from "./components/AdminLogin";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 /**
  * HomePage Component
@@ -102,9 +105,32 @@ function App() {
             </Layout>
           }
         />
+        <Route
+          path="/signup"
+          element={
+            <Layout>
+              <SignupForm />
+            </Layout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <AdminLogin />
+            </Layout>
+          }
+        />
 
         {/* Admin Dashboard */}
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

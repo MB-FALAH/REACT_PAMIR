@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import ReviewModal from "./ReviewModal";
-
+import { getReviews } from "../utils/reviewApi";
 /**
  * CustomerReviews Component
  * Displays customer reviews with ratings, sorting, and modal submission form
@@ -26,12 +26,21 @@ function CustomerReviews() {
   /**
    * Load reviews from localStorage on component mount
    */
-  useEffect(() => {
-    const storedReviews = JSON.parse(
-      localStorage.getItem("customerReviews") || "[]",
-    );
-    setReviews(storedReviews);
-  }, [t]);
+ useEffect(() => {
+  loadReviews();
+}, []);
+
+const loadReviews = async () => {
+  try {
+    const res = await getReviews();
+
+    if (res.success) {
+      setReviews(res.reviews);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   // Calculate average rating
   const averageRating =
