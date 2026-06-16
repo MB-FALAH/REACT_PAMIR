@@ -29,7 +29,7 @@ function ChooseYourResin() {
               {/* Product Image */}
               <div className="h-72 flex items-center justify-center mb-6 relative z-10">
                 <img
-                  src="/images/shilajit-4.png"
+                  src="/images/shilajit-4.webp"
                   alt="30g Shilajit"
                   className="w-96 h-104 object-contain drop-shadow-xl  transition-transform duration-500"
                 />

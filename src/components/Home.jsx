@@ -55,7 +55,7 @@ function Home() {
           <div className="md:w-1/2 flex justify-center animate-fade-in-up delay-200">
             <div className="product-bottle-container relative">
               <img
-                src="/images/shilajit-1.png"
+                src="/images/shilajit-1.webp"
                 alt="Pamir Mountain Shilajit Bottle"
                 className="w-full max-w-md h-auto object-contain drop-shadow-2xl relative z-10"
               />

@@ -1,31 +1,31 @@
 // ./src/components/layout/Footer.jsx
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useLanguage } from '../../context/LanguageContext';
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
 function Footer() {
   const { t } = useLanguage();
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle");
+  const [message, setMessage] = useState("");
 
   const handleSubscribe = (e) => {
     e.preventDefault();
 
-    if (!email || !email.includes('@')) {
-      setStatus('error');
-      setMessage('Please enter a valid email address');
+    if (!email || !email.includes("@")) {
+      setStatus("error");
+      setMessage("Please enter a valid email address");
       return;
     }
 
     const subscribers = JSON.parse(
-      localStorage.getItem('newsletterSubscribers') || '[]',
+      localStorage.getItem("newsletterSubscribers") || "[]",
     );
 
     const exists = subscribers.some((sub) => sub.email === email);
     if (exists) {
-      setStatus('error');
-      setMessage('This email is already subscribed!');
+      setStatus("error");
+      setMessage("This email is already subscribed!");
       return;
     }
 
@@ -34,15 +34,15 @@ function Footer() {
       subscribedAt: new Date().toISOString(),
     });
 
-    localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
+    localStorage.setItem("newsletterSubscribers", JSON.stringify(subscribers));
 
-    setStatus('success');
-    setMessage('✓ Subscribed successfully!');
-    setEmail('');
+    setStatus("success");
+    setMessage("✓ Subscribed successfully!");
+    setEmail("");
 
     setTimeout(() => {
-      setStatus('idle');
-      setMessage('');
+      setStatus("idle");
+      setMessage("");
     }, 5000);
   };
 
@@ -54,7 +54,7 @@ function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img
-                src="./src/assets/logo/shilajit-logo2.png"
+                src="./src/assets/logo/shilajit-logo2.webp"
                 className="w-8 h-8 rounded-full object-cover"
                 alt="Logo"
               />
@@ -84,7 +84,7 @@ function Footer() {
                   href="/#order"
                   className="text-matteBlack hover:text-white font-medium transition"
                 >
-                  {t.orderTitle || 'Order Now'}
+                  {t.orderTitle || "Order Now"}
                 </a>
               </li>
               <li>
@@ -145,33 +145,33 @@ function Footer() {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  if (status !== 'idle') {
-                    setStatus('idle');
-                    setMessage('');
+                  if (status !== "idle") {
+                    setStatus("idle");
+                    setMessage("");
                   }
                 }}
                 placeholder={t.formEmail}
-                disabled={status === 'success'}
+                disabled={status === "success"}
                 className="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gold w-full disabled:opacity-50"
               />
 
               <button
                 type="submit"
-                disabled={status === 'success'}
+                disabled={status === "success"}
                 className={`w-full px-4 py-2 rounded-lg font-bold transition ${
-                  status === 'success'
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gold text-darkGreen hover:bg-lightGold'
+                  status === "success"
+                    ? "bg-green-600 text-white"
+                    : "bg-gold text-darkGreen hover:bg-lightGold"
                 } disabled:opacity-50 disabled:cursor-not-allowed`}
               >
-                {status === 'success' ? '✓ Subscribed!' : t.footerSubscribe}
+                {status === "success" ? "✓ Subscribed!" : t.footerSubscribe}
               </button>
             </form>
 
             {message && (
               <p
                 className={`text-sm mt-2 ${
-                  status === 'success' ? 'text-green-400' : 'text-red-400'
+                  status === "success" ? "text-green-400" : "text-red-400"
                 }`}
               >
                 {message}
@@ -183,7 +183,7 @@ function Footer() {
         {/* Divider and copyright */}
         <div className="border-t border-white/10 pt-8 flex justify-center">
           <p className="text-sm text-gray-400" dir="auto">
-            {t.footerCopyright.replace('&copy;', '©')}
+            {t.footerCopyright.replace("&copy;", "©")}
           </p>
         </div>
       </div>
