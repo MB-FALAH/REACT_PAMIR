@@ -29,7 +29,7 @@ function ChooseYourResin() {
               {/* Product Image */}
               <div className="h-72 flex items-center justify-center mb-6 relative z-10">
                 <img
-                  src="/images/shilajit-4.png"
+                  src="/images/shilajit-4.webp"
                   alt="30g Shilajit"
                   className="w-96 h-104 object-contain drop-shadow-xl  transition-transform duration-500"
                 />
@@ -69,7 +69,7 @@ function ChooseYourResin() {
                     {t.btnInfo}
                   </button>
                   <a
-                    href="https://wa.me/93700123456"
+                    href="https://wa.me/971568253269"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 bg-transparent text-gold py-3 rounded-lg font-bold text-sm hover:bg-gold hover:text-black transition border-2 border-gold"

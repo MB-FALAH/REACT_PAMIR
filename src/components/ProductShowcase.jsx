@@ -20,7 +20,7 @@ function ProductShowcase() {
               <div className="h-full flex items-center justify-center mb-4">
                 <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="./public/images/shilajit-3.png"
+                    src="./public/images/shilajit-3.webp"
                     alt="30g Shilajit"
                     className="w-full h-full object-contain rounded-xl"
                   />
@@ -38,7 +38,7 @@ function ProductShowcase() {
               <div className="h-full flex items-center justify-center mb-4">
                 <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="./public/images/shilajit-4.png"
+                    src="./public/images/shilajit-4.webp"
                     alt="30g Shilajit"
                     className="w-full h-full object-contain rounded-xl"
                   />
@@ -54,7 +54,7 @@ function ProductShowcase() {
               <div className="h-full flex items-center justify-center mb-4">
                 <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="./public/images/shilajit-0.png"
+                    src="./public/images/shilajit-0.webp"
                     alt="30g Shilajit"
                     className="w-full h-full object-contain rounded-xl"
                   />

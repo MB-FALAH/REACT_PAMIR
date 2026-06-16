@@ -41,7 +41,7 @@ function Home() {
                 {t.btnCallNow}
               </a>
               <a
-                href="https://wa.me/93700123456"
+                href="https://wa.me/971568253269"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary border-2 border-gold text-gold px-8 py-4 rounded-tr-lg rounded-tl-lg font-semibold hover:bg-gold hover:text-darkGreen transition duration-300 text-center"
@@ -55,7 +55,7 @@ function Home() {
           <div className="md:w-1/2 flex justify-center animate-fade-in-up delay-200">
             <div className="product-bottle-container relative">
               <img
-                src="/images/shilajit-1.png"
+                src="/images/shilajit-1.webp"
                 alt="Pamir Mountain Shilajit Bottle"
                 className="w-full max-w-md h-auto object-contain drop-shadow-2xl relative z-10"
               />
