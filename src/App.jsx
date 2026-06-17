@@ -6,6 +6,26 @@ import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/layout/Layout';
 
 // Components
+import Benefits from "./components/Benefits";
+import Home from "./components/Home";
+import AboutUs from "./components/AboutUs";
+import StoryOfPamir from "./components/StoryOfPamir";
+import ProductShowcase from "./components/ProductShowcase";
+import LuxuryWellnessAuthenticity from "./components/LuxuryWellnessAuthenticity";
+import LabReports from "./components/LabReports";
+import ChooseYourResin from "./components/ChooseYourResin";
+import CustomerReviews from "./components/CustomerReviews";
+import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
+import GetInTouch from "./components/GetInTouch";
+import AdminDashboard from "./components/ReviewAdmin";
+import ShippingInfo from "./components/ShippingInfo";
+import ReturnsPolicy from "./components/ReturnsPolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
+import LabReportsPage from "./components/LabReportsPage";
+import SignupForm from "./components/SignupForm";
+import AdminLogin from "./components/AdminLogin";
+import ProtectedRoute from "./routes/ProtectedRoute";
 import Benefits from './components/Benefits';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
@@ -104,9 +124,32 @@ function App() {
             </Layout>
           }
         />
+        <Route
+          path="/signup"
+          element={
+            <Layout>
+              <SignupForm />
+            </Layout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <AdminLogin />
+            </Layout>
+          }
+        />
 
         {/* Admin Dashboard */}
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );
