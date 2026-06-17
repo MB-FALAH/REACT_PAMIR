@@ -187,8 +187,7 @@ export const translations = {
     footerNewsletter: "Newsletter",
     footerJoin: "Join the Altitude Wellness Circle",
     footerSubscribe: "Subscribe",
-    footerCopyright:
-      "&copy; 2026 Pamir Mountain Shilajit. All rights reserved.",
+    footerCopyright: "© 2026 Pamir Mountain Shilajit. All rights reserved.",
 
     // Modal
     modalTitle: "Shilajit Information",
