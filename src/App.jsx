@@ -1,9 +1,9 @@
 // ./src/App.jsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ScrollToTop from './components/ScrollToTop';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Layout
-import Layout from './components/layout/Layout';
+import Layout from "./components/layout/Layout";
 
 // Components
 import Benefits from "./components/Benefits";
@@ -46,6 +46,7 @@ import LabReportsPage from './components/LabReportsPage';
 
 /**
  * HomePage Component
+ * Aggregates all primary sections displayed on the main landing page.
  */
 function HomePage() {
   return (
@@ -67,6 +68,7 @@ function HomePage() {
 
 /**
  * Main App Component
+ * Configures the application router, defining all public and protected routes.
  */
 function App() {
   return (
@@ -83,7 +85,7 @@ function App() {
           }
         />
 
-        {/* Customer Care Pages */}
+        {/* Customer Care & Policy Pages */}
         <Route
           path="/shipping"
           element={
